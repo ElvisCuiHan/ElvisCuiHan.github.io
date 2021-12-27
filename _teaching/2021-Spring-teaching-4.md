@@ -2,13 +2,13 @@
 title: "Teaching experience"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/2020-spring-teaching-1
+permalink: /teaching/2020-Fall-teaching-1
 venue: "UCLA, Department of Biostatistics"
-date: 2020-03
+date: 2021-04
 location: "LA, CA"
 ---
 
-Biostatistics 100 A
+Biostatistics 241: Spatial Statistics Modeling.
 
 Heading 1
 ======
