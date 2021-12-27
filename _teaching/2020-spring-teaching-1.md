@@ -9,12 +9,3 @@ location: "LA, CA"
 ---
 
 Biostatistics 100 A: Introduction to Biostats using Stata.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======

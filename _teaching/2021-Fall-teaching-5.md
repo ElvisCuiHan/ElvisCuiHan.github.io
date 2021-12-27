@@ -10,12 +10,3 @@ location: "LA, CA"
 
 Biostatistics 203 A: Data Management and Analysis using SAS and R.
 Biostatistics 250 A: Linear Statistical Models.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
