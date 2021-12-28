@@ -4,7 +4,7 @@ collection: teaching
 type: "Undergraduate course"
 permalink: /teaching/2020-spring-teaching-1
 venue: "UCLA, Department of Biostatistics"
-date: 2020-03
+date: 2020-03-30
 location: "LA, CA"
 ---
 
