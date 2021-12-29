@@ -10,7 +10,7 @@ redirect_from:
 
 I am a PhD student working with [Weng Kee Wong](https://www.biostat.ucla.edu/people/wong) in [Department of Biostatistics](http://www.biostat.ucla.edu) at [University of California, Los Angeles](http://www.ucla.edu) (UCLA). 
 
-My research interests span the topics of optimal designs in clinical trials, statistical modeling of bioinformatics, instrumental variable analysis and survival analysis.
+My research interests span the topics of optimal designs in clinical trials, statistical modeling of bioinformatics, data augmentation in computer vision, instrumental variable analysis and survival analysis.
 
 CV
 ======
