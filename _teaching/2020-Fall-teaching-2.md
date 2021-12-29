@@ -1,5 +1,5 @@
 ---
-title: "Teaching experience"
+title: "2020 Fall TA"
 collection: teaching
 type: "Undergraduate course"
 permalink: /teaching/2020-Fall-teaching-2
