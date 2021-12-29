@@ -55,7 +55,7 @@ Work experience
 
 Currently have published/submitted three manuscripts on top conferences in artificial intelligence and machine learning (See publication and pre-print 3, 4 and 5). Research projects has fostered a collaboration with an AI research company to improve the quality and efficiency of data augmentation in aerospace industry.
 
-Designed a manifold learning framework for data augmentation and few shot image classification problem, which improved 30% accuracy of on the benchmark few shot datasets and enhanced the smoothness of interpolation by 50% of the baseline on benchmark datasets. Developed a fast projection embedding algorithm for few shot object detection models and shortened ~10% running time of the models (Faster-RCNN, Yolo-V3 and other few shot object detection models). 
+Designed a manifold learning framework for data augmentation and few shot image classification problem, which improved 30\% accuracy of on the benchmark few shot datasets and enhanced the smoothness of interpolation by 50\% of the baseline on benchmark datasets. Developed a fast projection embedding algorithm for few shot object detection models and shortened ~10\% running time of the models (Faster-RCNN, Yolo-V3 and other few shot object detection models). 
 
 - *Sperax, Information Technology and Services*, Menlo Park, California, Work Remotely
 
@@ -77,7 +77,7 @@ Collins, M. D., **Cui, E. H.**, Hyun, S. W and Wong, W. K. (2021). A Model-based
 
 **Elvis Han Cui**, Dongyuan Song, Weng Kee Wong and Jessica Jingyi Li (2021), [“Single-cell generalized trend model (scGTM): a flexible and interpretable model of gene expression trend along cell pseudotime”.](https://www.biorxiv.org/content/10.1101/2021.11.25.470059v1) Submitted to Bioinformatics. Under review. 
 
-Yanan Li, Pengyang Li, **Elvis Han Cui**, Donghui Wang (2021), [“Inference Fusion with Associative Semantics for Unseen Object Detection”. Proceedings of the AAAI Conference on Artificial Intelligence. 2021, 35(3): 1993-2001.](https://ojs.aaai.org/index.php/AAAI/article/view/16295)
+Yanan Li, Pengyang Li, **Elvis Han Cui**, Donghui Wang (2021), [“Inference Fusion with Associative Semantics for Unseen Object Detection”.](https://ojs.aaai.org/index.php/AAAI/article/view/16295) Proceedings of the AAAI Conference on Artificial Intelligence. 2021, 35(3): 1993-2001.
 
 **Elvis Han Cui**, Bingbin Li, Yanan Li, Weng Kee Wong, Donghui Wang (2021), “Trajectory-aware Principal Manifold Framework for Few-Shot Image Generation”. Submitted to Computer Vision and Pattern Recognition (CVPR).
 
