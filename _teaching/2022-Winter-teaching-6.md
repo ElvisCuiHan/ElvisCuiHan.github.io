@@ -2,9 +2,9 @@
 title: "2021 Winter TA"
 collection: teaching
 type: "PhD course"
-permalink: /teaching/2021-Winter-teaching-3
+permalink: /teaching/2022-Winter-teaching-6
 venue: "UCLA, Department of Biostatistics"
-date: 2021-01-03
+date: 2022-01-03
 location: "LA, CA"
 ---
 
