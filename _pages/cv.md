@@ -57,9 +57,9 @@ Currently have published/submitted three manuscripts on top conferences in artif
 
 Designed a manifold learning framework for data augmentation and few shot image classification problem, which improved 30% accuracy of on the benchmark few shot datasets and enhanced the smoothness of interpolation by 50% of the baseline on benchmark datasets. Developed a fast projection embedding algorithm for few shot object detection models and shortened ~10% running time of the models (Faster-RCNN, Yolo-V3 and other few shot object detection models). 
 
-*Sperax, Information Technology and Services*, Menlo Park, California, Work Remotely
+- *Sperax, Information Technology and Services*, Menlo Park, California, Work Remotely
 
-**Statistician **\(Aug 2020 – Oct 2020\)
+**Statistician** \(Aug 2020 – Oct 2020\)
 
 Developed a stochastic Markov dynamic model framework to simulate the stream of nodes of the system in Python. 
 
@@ -73,21 +73,21 @@ Skills
 
 Publications
 ======
-Collins, M. D., Cui, E. H., Hyun, S. W and Wong, W. K. (2021). A Model-based Approach to Designing Developmental Toxicology Experiments using Sea Urchin Embryos. Archives of Toxicology. In press. (https://elviscuihan.shinyapps.io/Dc_optimal_design/ for R Shiny App).
+Collins, M. D., **Cui, E. H.**, Hyun, S. W and Wong, W. K. (2021). A Model-based Approach to Designing Developmental Toxicology Experiments using Sea Urchin Embryos. Archives of Toxicology. In press. ([Click here](https://elviscuihan.shinyapps.io/Dc_optimal_design/) for R Shiny App).
 
-Elvis Han Cui, Dongyuan Song, Weng Kee Wong and Jessica Jingyi Li (2021), “Single-cell generalized trend model (scGTM): a flexible and interpretable model of gene expression trend along cell pseudotime”. Submitted to Bioinformatics. Under review. (https://www.biorxiv.org/content/10.1101/2021.11.25.470059v1). 
+**Elvis Han Cui**, Dongyuan Song, Weng Kee Wong and Jessica Jingyi Li (2021), [“Single-cell generalized trend model (scGTM): a flexible and interpretable model of gene expression trend along cell pseudotime”.](https://www.biorxiv.org/content/10.1101/2021.11.25.470059v1) Submitted to Bioinformatics. Under review. 
 
-Yanan Li, Pengyang Li, Elvis Han Cui, Donghui Wang (2021), “Inference Fusion with Associative Semantics for Unseen Object Detection”. Proceedings of the AAAI Conference on Artificial Intelligence. 2021, 35(3): 1993-2001. (https://ojs.aaai.org/index.php/AAAI/article/view/16295).
+Yanan Li, Pengyang Li, **Elvis Han Cui**, Donghui Wang (2021), [“Inference Fusion with Associative Semantics for Unseen Object Detection”. Proceedings of the AAAI Conference on Artificial Intelligence. 2021, 35(3): 1993-2001.](https://ojs.aaai.org/index.php/AAAI/article/view/16295)
 
-Elvis Han Cui, Bingbin Li, Yanan Li, Weng Kee Wong, Donghui Wang (2021), “Trajectory-aware Principal Manifold Framework for Few-Shot Image Generation”. Submitted to Computer Vision and Pattern Recognition (CVPR).
+**Elvis Han Cui**, Bingbin Li, Yanan Li, Weng Kee Wong, Donghui Wang (2021), “Trajectory-aware Principal Manifold Framework for Few-Shot Image Generation”. Submitted to Computer Vision and Pattern Recognition (CVPR).
 
-Bingbin Li, Elvis Han Cui, Yanan Li, Weng Kee Wong, Donghui Wang (2021), “Dual Path Structural Contrastive Embeddings for Learning Novel Objects”. (https://arxiv.org/pdf/2112.12359).In preparation.
+Bingbin Li, **Elvis Han Cui**, Yanan Li, Weng Kee Wong, Donghui Wang (2021), [“Dual Path Structural Contrastive Embeddings for Learning Novel Objects”.](https://arxiv.org/pdf/2112.12359) In preparation.
 
-Elvis Cui and Heather Zhou (2019), “Projection pursuit with applications to scRNA sequencing data”. (https://arxiv.org/abs/1912.07602). In preparation.
+**Elvis Cui** and Heather Zhou (2019), [“Projection pursuit with applications to scRNA sequencing data”.](https://arxiv.org/abs/1912.07602) In preparation.
 
-Elvis Han Cui and Weng Kee Wong (2022), Charaterization of D-Optimal Designs for Two-Parameter Binary Regression Models with Various Link Functions. In preparation.
+**Elvis Han Cui** and Weng Kee Wong (2022), Charaterization of D-Optimal Designs for Two-Parameter Binary Regression Models with Various Link Functions. In preparation.
 
-Elvis Han Cui, Weng Kee Wong and Minjeong Jeon (2022), Metaheuristic algorithms with applications to maximum likelihood estimation in item response models. In preparation.
+**Elvis Han Cui**, Weng Kee Wong and Minjeong Jeon (2022), Metaheuristic algorithms with applications to maximum likelihood estimation in item response models. In preparation.
   
 Teaching
 ======
