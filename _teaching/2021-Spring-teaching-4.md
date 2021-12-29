@@ -1,7 +1,7 @@
 ---
 title: "2021 Spring TA"
 collection: teaching
-type: "Undergraduate course"
+type: "Graduate course"
 permalink: /teaching/2021-Spring-teaching-4
 venue: "UCLA, Department of Biostatistics"
 date: 2021-04-01
