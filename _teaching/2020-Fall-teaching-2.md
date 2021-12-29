@@ -1,7 +1,7 @@
 ---
 title: "2020 Fall TA"
 collection: teaching
-type: "Undergraduate course"
+type: "Graduate courses"
 permalink: /teaching/2020-Fall-teaching-2
 venue: "UCLA, Department of Biostatistics"
 date: 2020-09-01
