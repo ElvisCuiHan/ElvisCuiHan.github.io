@@ -8,4 +8,4 @@ date: 2021-04-01
 location: "LA, CA"
 ---
 
-Biostatistics 241: Spatial Statistics Modeling.
+Biostatistics 241: [Spatial Statistics Modeling](https://github.com/ElvisCuiHan/spatial-data-modelling).
