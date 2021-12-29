@@ -18,6 +18,7 @@ Education
 Research Experience
 ======
 - *Department of Biostatistics, UCLA* \(Supervisor: Gang Li\)
+
 **Graduate Student Researcher** \(Dec 2021 - Present\)
 
 • Developing semi-parametric Bayesian methods and algorithms for instrumental variable analysis with applications to analyzing the UK Biobank (UKB) cancer data.  I worked with two-stage regression models with right and interval censored data, Cox’s multiplicative model, AFT model and competing risk models.
@@ -25,6 +26,7 @@ Research Experience
 •Analyzed Women's Healthy Eating and Living (WHEL) data using different survival regression models stratified for various covariates as risk factors. Performed exploratory data analysis using R (KMsurv, survivor, ggplot2 packages).
 
 - *Department of Statistics, UCLA* \(Supervisor: Jessica Jingyi Li\)
+
 **Graduate Student Researcher** \(March 2021 – November 2021\)
 
 •Initiated and led a group to develop computational and visualization tools for scRNA data. Developed scGTM, a Python package for building kinetics models of two variables with various shapes of correlation (https://github.com/ElvisCuiHan/scGTM) (See publication and pre-print 2 and 6). 
@@ -32,6 +34,7 @@ Research Experience
 •Identified immune genes with increasing patterns using scGTM and gene oncology (GO) analysis. Such findings help biologists to detect genes that of great medical and biological interest. Shortened ~50\% running time on three large genomic (scRNA seq) datasets by proposing a modified optimization algorithm (PSO) to enhance large scale and parallel computation.
 
 - *School of Education and Information Studies, UCLA* \(Supervisor: Minjeong Jeon\)
+
 **Graduate Student Researcher** \(March 2020 – July 2020\)
 
 •Designed various EM algorithms for large scale data mining with x1000 times faster than SOTA packages in R and Julia (https://github.com/ElvisCuiHan/computational-methods-for-large-scale-data-mining) (See publication and pre-print 8).
@@ -55,6 +58,7 @@ Currently have published/submitted three manuscripts on top conferences in artif
 Designed a manifold learning framework for data augmentation and few shot image classification problem, which improved 30% accuracy of on the benchmark few shot datasets and enhanced the smoothness of interpolation by 50% of the baseline on benchmark datasets. Developed a fast projection embedding algorithm for few shot object detection models and shortened ~10% running time of the models (Faster-RCNN, Yolo-V3 and other few shot object detection models). 
 
 *Sperax, Information Technology and Services*, Menlo Park, California, Work Remotely
+
 **Statistician **\(Aug 2020 – Oct 2020\)
 
 Developed a stochastic Markov dynamic model framework to simulate the stream of nodes of the system in Python. 
