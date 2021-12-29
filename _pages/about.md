@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "About me"
-excerpt: "About Eliuvish Cuisizion"
+excerpt: "About Elvis Cui"
 author_profile: true
 redirect_from: 
   - /about/
@@ -12,4 +12,6 @@ I am a PhD student working with [Weng Kee Wong](https://www.biostat.ucla.edu/peo
 
 My research interests span the topics of optimal designs in clinical trials, statistical modeling of bioinformatics, instrumental variable analysis and survival analysis.
 
+CV
+======
 [Here is my CV.](files/CV.pdf)
