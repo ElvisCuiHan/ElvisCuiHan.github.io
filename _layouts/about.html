@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="about-page">
+  <header class="page-heading">
+    <h1><strong>Elvis Han</strong> Cui <span class="chinese-name" lang="zh">崔涵</span></h1>
+    <p class="page-subtitle">Institute of Natural Sciences, <a href="https://www.westlake.edu.cn/">Westlake Institute for Advanced Study</a>.</p>
+  </header>
+  <div class="about-intro">
+    <div class="about-body">{{ content }}</div>
+    <figure class="profile-photo">
+      <img src="{{ '/assets/images/elvis-avatar.png' | relative_url }}" alt="Illustrated avatar selected by Elvis Han Cui" width="1158" height="1250" fetchpriority="high">
+    </figure>
+  </div>
+  <section class="selected-publications" aria-labelledby="selected-title">
+    <h2 id="selected-title"><a href="{{ '/publications/' | relative_url }}">selected publications</a></h2>
+    {% assign selected = site.data.papers | where: 'selected', true %}
+    {% include paper-list.html papers=selected %}
+    <p class="all-publications"><a href="{{ '/publications/' | relative_url }}">All publications &amp; preprints <span aria-hidden="true">→</span></a></p>
+  </section>
+  <nav class="profile-links" aria-label="Academic profiles">
+    <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+    <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+    <a href="{{ '/files/CV.pdf' | relative_url }}">CV <span class="file-type">PDF</span></a>
+  </nav>
+</article>

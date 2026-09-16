@@ -1,0 +1,12 @@
+<ol class="paper-list">
+  {% for paper in include.papers %}
+  <li>
+    <div class="paper-title">{{ paper.title | escape }}</div>
+    <div class="paper-authors">{{ paper.authors | escape }}, {{ paper.year }}</div>
+    {% if paper.venue %}<div class="paper-venue">{{ paper.venue | escape }}</div>{% endif %}
+    <div class="paper-links">
+      {% for link in paper.links %}<a href="{{ link.url }}" aria-label="{{ link.label | escape }}: {{ paper.title | escape }}">[{{ link.label }}]</a>{% endfor %}
+    </div>
+  </li>
+  {% endfor %}
+</ol>

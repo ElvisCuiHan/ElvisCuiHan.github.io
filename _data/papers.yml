@@ -1,0 +1,55 @@
+# Migrated from the existing public CV; linked records checked 2026-09-16.
+# Do not add unpublished/private lab work without the author's approval.
+- title: "Single-cell generalized trend model (scGTM): a flexible and interpretable model of gene expression trend along cell pseudotime"
+  authors: "Elvis Han Cui, Dongyuan Song, Weng Kee Wong, Jingyi Jessica Li"
+  year: 2022
+  venue: "Bioinformatics, 38(16), 3927–3934"
+  category: article
+  selected: true
+  links:
+    - label: paper
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9991897/
+    - label: code
+      url: https://github.com/ElvisCuiHan/scGTM
+    - label: preprint
+      url: https://www.biorxiv.org/content/10.1101/2021.11.25.470059v1
+- title: "A model-based approach to designing developmental toxicology experiments using sea urchin embryos"
+  authors: "Michael D. Collins, Elvis Han Cui, Seung Won Hyun, Weng Kee Wong"
+  year: 2022
+  venue: "Archives of Toxicology, 96, 919–932"
+  category: article
+  selected: true
+  links:
+    - label: paper
+      url: https://doi.org/10.1007/s00204-021-03201-1
+    - label: full text
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8850257/
+    - label: app
+      url: https://elviscuihan.shinyapps.io/Dc_optimal_design/
+- title: "Inference Fusion with Associative Semantics for Unseen Object Detection"
+  authors: "Yanan Li, Pengyang Li, Han Cui, Donghui Wang"
+  year: 2021
+  venue: "Proceedings of the AAAI Conference on Artificial Intelligence, 35(3), 1993–2001"
+  category: article
+  selected: true
+  links:
+    - label: paper
+      url: https://doi.org/10.1609/aaai.v35i3.16295
+- title: "Dual Path Structural Contrastive Embeddings for Learning Novel Objects"
+  authors: "Bingbin Li, Elvis Han Cui, Yanan Li, Donghui Wang, Weng Kee Wong"
+  year: 2021
+  venue: "arXiv:2112.12359 · revised 2022"
+  category: preprint
+  selected: false
+  links:
+    - label: arxiv
+      url: https://arxiv.org/abs/2112.12359
+- title: "Projection Pursuit with Applications to scRNA Sequencing Data"
+  authors: "Elvis Han Cui, Heather Zhou"
+  year: 2019
+  venue: "arXiv:1912.07602 · revised 2022"
+  category: preprint
+  selected: false
+  links:
+    - label: arxiv
+      url: https://arxiv.org/abs/1912.07602

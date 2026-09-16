@@ -1,31 +1,46 @@
----
-layout: compress
----
-
-{% include base_path %}
-
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+<html lang="en">
   <head>
-    {% include head.html %}
-    {% include head/custom.html %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.url != '/' %}{{ page.title | strip_html | escape }} · {% endif %}{{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
+    <meta name="author" content="{{ site.author.name | escape }}">
+    <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
+    <meta property="og:image" content="{{ '/assets/images/elvis-avatar.png' | absolute_url }}">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="{{ '/assets/images/monogram.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}" title="{{ site.title | escape }}">
+    <script src="{{ '/assets/js/academic-theme.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
   </head>
-
   <body>
-
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
-
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-name{% if page.url == '/' %} nav-name--home{% endif %}" href="{{ '/' | relative_url }}">Elvis Han Cui</a>
+        <div class="nav-links">
+          {% for item in site.data.navigation.main %}
+          <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a>
+          {% endfor %}
+          <button class="theme-toggle" type="button" hidden aria-label="Switch to dark theme" title="Change color theme" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 13.2A8.8 8.8 0 0 1 10.8 3.3 8.9 8.9 0 1 0 20.7 13.2Z"/></svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="site-main" tabindex="-1">{{ content }}</main>
+    <footer class="site-footer">
+      <nav class="archive-links" aria-label="More pages">
+        <a href="{{ '/teaching/' | relative_url }}">teaching</a>
+        <a href="{{ '/talks/' | relative_url }}">talks</a>
+        <a href="{{ '/year-archive/' | relative_url }}">blog</a>
+      </nav>
+      <p>© {{ site.time | date: '%Y' }} {{ site.author.name }} <span aria-hidden="true">·</span> Hangzhou, China</p>
+    </footer>
   </body>
 </html>

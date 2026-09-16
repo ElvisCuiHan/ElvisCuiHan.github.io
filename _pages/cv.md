@@ -9,14 +9,22 @@ redirect_from:
 
 {% include base_path %}
 
+Current appointment
+------
+**Postdoctoral Researcher**, Institute of Natural Sciences, Westlake Institute for Advanced Study, Hangzhou, China. Working with **Hong Qian** at Westlake University.
+
+[Download CV (PDF)]({{ '/files/CV.pdf' | relative_url }}) · [Publications]({{ '/publications/' | relative_url }})
+
+<p class="quiet-note">The PDF and detailed entries below are retained from the earlier website and may not reflect the latest appointments or publication status. The current appointment above and the publications page have been updated separately.</p>
+
 Education
-======
+------
 * B.S. in Environment Science, Zhejiang University, 2018
 * M.S. in Biostatistics, University of California, Los Angeles, 2020
 * Ph.D in Biostatistics, University of California, Los Angeles, 2024 (expected)
 
 Research Experience
-======
+------
 - *Department of Biostatistics, UCLA* \(Supervisor: Gang Li\)
 
 **Graduate Student Researcher** \(Dec 2021 - Present\)
@@ -47,7 +55,7 @@ Research Experience
 •Created a web-based tool for implementing a R-code on the Shiny Platform to find different types of optimal designs for a toxicological study using sea urchins, and developed a characterization theorem based on an equivalence theorem to confirm optimality of a 2-point design for regression models with a binary outcome. (See publication and pre-print 1 and 7, respectively).
 
 Work experience
-======
+------
 - *Artificial Intelligence Research Center, Zhejiang Lab* \(Hangzhou, China\)
 
 **Artificial Intelligence Researcher** \(Sept 2020 – Aug 2021\)
@@ -66,13 +74,13 @@ Developed a stochastic Markov dynamic model framework to simulate the stream of 
 Results helped the team to make decision on the distribution of Sperax coin and are used to give a better understanding of the working mechanism of Sperax coin.
   
 Skills
-======
+------
 - Languages: Python, R, SAS, MATLAB, WinBUGS, Stata, JAVA, C, SQL, Julia.
 - Courses (already taken or planning to take before summer 2022): Core classes in Biostatistics, Optimal design with applications to biomedical studies, survival analysis, longitudinal data analysis, spatial data modeling, adaptive designs for clinical trials, Markov Chain Monte Carlo, Graphical models, linear statistical models, multivariate analysis, stochastic models, and sampling methods. 
 - Teaching Assistant for the following classes to date: Biostat 250A (Linear Models), Biostat 203A (SAS and R), Biostat 203B (Data Science) and Biostat 100A (Stata).
 
 Publications
-======
+------
 Collins, M. D., **Cui, E. H.**, Hyun, S. W and Wong, W. K. (2021). A Model-based Approach to Designing Developmental Toxicology Experiments using Sea Urchin Embryos. Archives of Toxicology. In press. ([Click here](https://elviscuihan.shinyapps.io/Dc_optimal_design/) for R Shiny App).
 
 **Elvis Han Cui**, Dongyuan Song, Weng Kee Wong and Jessica Jingyi Li (2021), [“Single-cell generalized trend model (scGTM): a flexible and interpretable model of gene expression trend along cell pseudotime”.](https://www.biorxiv.org/content/10.1101/2021.11.25.470059v1) Submitted to Bioinformatics. Under review. 
@@ -90,11 +98,11 @@ Bingbin Li, **Elvis Han Cui**, Yanan Li, Weng Kee Wong, Donghui Wang (2021), [�
 **Elvis Han Cui**, Weng Kee Wong and Minjeong Jeon (2022), Metaheuristic algorithms with applications to maximum likelihood estimation in item response models. In preparation.
   
 Teaching
-======
+------
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
 Award and Honors
-======
+------
 Irma Polaski 2-year Fellowship for a foreign student in the Fielding School of Public Health for academic excellence.

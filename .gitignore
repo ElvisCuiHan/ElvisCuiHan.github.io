@@ -1,2 +1,8 @@
 _site/
-
+_site-preview/
+.bundle/
+vendor/
+.jekyll-cache/
+.sass-cache/
+node_modules/
+.DS_Store

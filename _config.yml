@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Elvis Cui's Pages"
+title                    : "Elvis Han Cui"
 title_separator          : "-"
 name                     : &name "Elvis Han Cui"
-description              : &description "personal description"
+description              : &description "Elvis Han Cui — postdoctoral researcher in statistics and quantitative biology, working with Hong Qian at Westlake."
 url                      : https://elviscuihan.github.io  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ElvisCuiHan/ElvisCuiHan.github.io"
@@ -81,10 +81,10 @@ analytics:
 # Site Author
 author:
   name             : "Elvis Han Cui"
-  avatar           : "elviscuihan2.JPG"
-  bio              : "PhD Student in Biostatistics"
-  location         : "Los Angeles"
-  employer         :
+  avatar           : "../assets/images/elvis-avatar.png"
+  bio              : "Postdoctoral Researcher"
+  location         : "Hangzhou, China"
+  employer         : "Institute of Natural Sciences, Westlake Institute for Advanced Study"
   #pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=e1rC8lUAAAAJ&hl=en&oi=ao"
   email            :
@@ -103,7 +103,7 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            :
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
@@ -145,6 +145,10 @@ exclude:
   - package.json
   - tmp
   - vendor
+  - docs
+  - scripts
+  - Gemfile.lock
+  - package-lock.json
 keep_files:
   - .git
   - .svn
@@ -254,7 +258,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Shanghai
 
 
 # Plugins
