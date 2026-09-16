@@ -18,6 +18,16 @@ layout: default
     {% include paper-list.html papers=selected %}
     <p class="all-publications"><a href="{{ '/publications/' | relative_url }}">All publications &amp; preprints <span aria-hidden="true">→</span></a></p>
   </section>
+  <section id="wechat" class="wechat-account" aria-labelledby="wechat-title">
+    <div>
+      <p class="wechat-label">WeChat <span aria-hidden="true">·</span> <span lang="zh-CN">微信公众号</span></p>
+      <h2 id="wechat-title" lang="zh-CN">{{ site.author.wechat_public_account | escape }}</h2>
+    </div>
+    <div class="wechat-instructions">
+      <p lang="zh-CN">在微信「搜一搜」中搜索该名称，选择「公众号」关注。</p>
+      <p>Search this name in WeChat under Official Accounts.</p>
+    </div>
+  </section>
   <section class="business-card" aria-labelledby="business-card-title">
     <div class="business-card-heading">
       <h2 id="business-card-title">beyond the bio</h2>
@@ -30,9 +40,10 @@ layout: default
       <figcaption>One trajectory, many scales — from molecules to society.</figcaption>
     </figure>
   </section>
-  <nav class="profile-links" aria-label="Academic profiles">
+  <nav class="profile-links" aria-label="Profiles and contact">
     <a href="{{ site.author.googlescholar }}">Google Scholar</a>
     <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+    <a href="#wechat">WeChat</a>
     <a href="{{ '/files/CV.pdf' | relative_url }}">CV <span class="file-type">PDF</span></a>
   </nav>
 </article>

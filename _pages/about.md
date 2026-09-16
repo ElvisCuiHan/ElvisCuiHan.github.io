@@ -13,3 +13,5 @@ I am a **postdoctoral researcher in Qian Lab**, led by [Professor Hong Qian (钱
 My research connects **statistical inference** with **stochastic dynamics and quantitative biology**, with a current focus on fluorescence correlation spectroscopy and photon-counting data. My broader interests include optimal experimental design, bioinformatics, survival analysis, and statistical methods for machine learning.
 
 Find my work on [Google Scholar](https://scholar.google.com/citations?user=e1rC8lUAAAAJ&hl=en&oi=ao) and [GitHub](https://github.com/ElvisCuiHan).
+
+My WeChat public account: [<span lang="zh-CN">{{ site.author.wechat_public_account | escape }}</span>](#wechat).

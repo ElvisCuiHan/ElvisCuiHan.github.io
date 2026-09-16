@@ -29,6 +29,10 @@ The existing AcademicPages / Minimal Mistakes MIT license remains in LICENSE.
   `assets/images/elvis-business-card.png`, displayed below the selected papers,
   and offered as a full-resolution image/download.
 - The current introduction mentions Hong Qian and the author's FCS/statistics work.
+- The author supplied the WeChat public-account name “让统计再次伟大”. Home
+  includes its name and bilingual search-to-follow instructions. No verified
+  public URL or QR code was supplied; no personal WeChat ID, private dashboard,
+  speculative link, or generated QR code is published.
   No private lab files, unpublished manuscripts, HR documents, or contact numbers
   were copied from the local Westlake archive.
 - The legacy PDF CV remains unchanged. The HTML CV distinguishes its current
@@ -51,6 +55,7 @@ The existing AcademicPages / Minimal Mistakes MIT license remains in LICENSE.
 | Online CV | `_pages/cv.md` |
 | Existing PDF CV | `files/CV.pdf` |
 | Business card | `assets/images/elvis-business-card.png` |
+| WeChat public-account name | `_config.yml` → `author.wechat_public_account` |
 | Navigation | `_data/navigation.yml` |
 | Layout and spacing | `assets/css/academic.css` |
 | Theme behavior | `assets/js/academic-theme.js` |

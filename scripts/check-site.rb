@@ -68,6 +68,11 @@ errors << 'Missing research affiliation' unless ['Center for Interdisciplinary S
 card = homepage.at_css('.business-card img')
 errors << 'Missing business card' unless card && card['src'] == '/assets/images/elvis-business-card.png'
 errors << 'Missing downloadable business card' unless homepage.at_css('.business-card a[download]')
+wechat = homepage.at_css('#wechat')
+errors << 'Missing WeChat public account' unless wechat && wechat.at_css('#wechat-title').text == '让统计再次伟大'
+errors << 'Missing WeChat search instructions' unless wechat && wechat.text.include?('Official Accounts') && wechat.text.include?('搜一搜')
+errors << 'Missing WeChat profile link' unless homepage.at_css('.profile-links a[href="#wechat"]')
+errors << 'Unverified external WeChat link' if wechat && wechat.at_css('a[href]')
 errors << 'Wrong avatar' unless homepage.at_css('.profile-photo img')['src'] == '/assets/images/elvis-avatar.png'
 abort errors.uniq.join("\n") unless errors.empty?
 puts "Site checks passed: #{routes.size} pages, #{count} local links/assets, headings, anchors, bibliography, and affiliation."

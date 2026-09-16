@@ -52,6 +52,12 @@ h2{font-size:28px;font-weight:300;letter-spacing:-.4px;margin:0 0 26px}
 .paper-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:3px}
 .paper-links a{font-size:13px;white-space:nowrap}
 .all-publications{font-size:14px;margin:28px 0 0}
+.wechat-account{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;margin-top:40px;padding:24px 28px;background:var(--soft);border:1px solid var(--rule);border-radius:6px;scroll-margin-top:88px}
+.wechat-label{display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.5px;color:var(--muted);margin:0 0 10px}
+.wechat-label::before{content:"";width:7px;height:7px;border-radius:50%;background:#29a66f}
+.wechat-account h2{font-size:24px;font-weight:500;letter-spacing:1px;margin:0;line-height:1.5}
+.wechat-instructions p{font-size:13px;color:var(--muted);margin:0;line-height:1.7}
+.wechat-instructions p+p{font-size:12px;margin-top:6px}
 .business-card{margin:48px 0 0;padding-top:30px;border-top:1px solid var(--rule)}
 .business-card-heading{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:20px}
 .business-card-heading h2{margin:0}
@@ -112,6 +118,7 @@ h2{font-size:28px;font-weight:300;letter-spacing:-.4px;margin:0 0 26px}
   .about-intro{grid-template-columns:1fr;gap:30px;margin-bottom:37px}
   .about-body p{margin-bottom:24px}
   .profile-photo{width:min(60%,260px);margin:0 auto}
+  .wechat-account{grid-template-columns:1fr;gap:16px;padding:22px}
   h2{font-size:26px}
   .paper-list li{margin-bottom:25px}
   .profile-links{gap:22px;margin-top:38px}

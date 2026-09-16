@@ -46,4 +46,17 @@
 - Local browser error log was empty. Temporary viewport overrides were reset.
 
 Metadata sources and scope limitations are in `docs/PUBLICATIONS_AUDIT.md`.
-Changes are local only; no push or deployment was performed.
+The initial redesign and bibliography expansion were deployed after explicit
+user confirmation: commit `bde51f9`, GitHub Pages run `35049948775` succeeded.
+The public homepage and all 28 bibliography entries were verified live.
+
+## WeChat public account
+
+- Added the user-supplied name “让统计再次伟大” to the introduction, a dedicated
+  bilingual follow/search panel, and the bottom profile links.
+- Kept the destination as an on-page anchor: no verified public URL or QR code
+  was available, and no private creator-dashboard information was published.
+- Jekyll build, site checker (7 pages / 121 local links and assets), theme checker,
+  and whitespace checks passed.
+- Browser QA: desktop panel and 320 px mobile panel render correctly; the WeChat
+  profile link reaches the panel. Mobile scroll width equals its 320 px viewport.
