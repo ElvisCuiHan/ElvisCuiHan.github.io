@@ -4,7 +4,7 @@ layout: default
 <article class="about-page">
   <header class="page-heading">
     <h1><strong>Elvis Han</strong> Cui <span class="chinese-name" lang="zh">崔涵</span></h1>
-    <p class="page-subtitle">Institute of Natural Sciences, <a href="https://www.westlake.edu.cn/">Westlake Institute for Advanced Study</a>.</p>
+    <p class="page-subtitle">Qian Lab · Center for Interdisciplinary Studies<br>School of Science, <a href="https://www.westlake.edu.cn/">Westlake University</a></p>
   </header>
   <div class="about-intro">
     <div class="about-body">{{ content }}</div>
@@ -17,6 +17,18 @@ layout: default
     {% assign selected = site.data.papers | where: 'selected', true %}
     {% include paper-list.html papers=selected %}
     <p class="all-publications"><a href="{{ '/publications/' | relative_url }}">All publications &amp; preprints <span aria-hidden="true">→</span></a></p>
+  </section>
+  <section class="business-card" aria-labelledby="business-card-title">
+    <div class="business-card-heading">
+      <h2 id="business-card-title">beyond the bio</h2>
+      <a href="{{ '/assets/images/elvis-business-card.png' | relative_url }}" download="Elvis-Han-Cui-Business-Card.png">Download my card <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure>
+      <a href="{{ '/assets/images/elvis-business-card.png' | relative_url }}" aria-label="View Elvis Han Cui's business card at full resolution">
+        <img src="{{ '/assets/images/elvis-business-card.png' | relative_url }}" alt="Elvis Han Cui's two-sided business card: One Trajectory, Many Scales, connecting education, research, and industry." width="1672" height="941" loading="lazy" decoding="async">
+      </a>
+      <figcaption>One trajectory, many scales — from molecules to society.</figcaption>
+    </figure>
   </section>
   <nav class="profile-links" aria-label="Academic profiles">
     <a href="{{ site.author.googlescholar }}">Google Scholar</a>

@@ -2,6 +2,7 @@
 require 'nokogiri'
 require 'uri'
 require 'pathname'
+require 'yaml'
 
 root = File.expand_path(ARGV.fetch(0, '_site'))
 routes = ['index.html', 'publications/index.html', 'cv/index.html',
@@ -51,10 +52,22 @@ routes.each do |route|
   end
 end
 homepage = Nokogiri::HTML(File.read(File.join(root, 'index.html')))
-errors << 'Selected paper count is not 3' unless homepage.css('.paper-list > li').size == 3
+papers = YAML.load_file(File.expand_path('../_data/papers.yml', __dir__))
+selected = papers.select { |paper| paper['selected'] }.map { |paper| paper['id'] }
+errors << 'Selected papers differ from the bibliography' unless homepage.css('.paper-list > li').map { |n| n['data-paper-id'] } == selected
 pubs = Nokogiri::HTML(File.read(File.join(root, 'publications/index.html')))
-errors << 'Bibliography count is not 5' unless pubs.css('.paper-list > li').size == 5
+ids = papers.map { |paper| paper['id'] }
+errors << 'Bibliography IDs must be unique and nonempty' unless ids.uniq.size == ids.size && ids.all? { |id| id && !id.empty? }
+errors << 'Rendered bibliography differs from the data' unless pubs.css('.paper-list > li').map { |n| n['data-paper-id'] } == ids
+{'articles' => 'article', 'preprints' => 'preprint', 'books-thesis' => 'longform'}.each do |section, category|
+  expected = papers.count { |paper| paper['category'] == category }
+  errors << "Wrong category count: #{section}" unless pubs.css("##{section} .paper-list > li").size == expected
+end
 errors << 'Old student identity on homepage' if homepage.text.include?('PhD Student')
-errors << 'Missing formal affiliation' unless homepage.text.include?('Westlake Institute for Advanced Study')
+errors << 'Missing research affiliation' unless ['Center for Interdisciplinary Studies', 'School of Science', 'Qian Lab', 'Postdoctoral'].all? { |text| homepage.text.downcase.include?(text.downcase) }
+card = homepage.at_css('.business-card img')
+errors << 'Missing business card' unless card && card['src'] == '/assets/images/elvis-business-card.png'
+errors << 'Missing downloadable business card' unless homepage.at_css('.business-card a[download]')
+errors << 'Wrong avatar' unless homepage.at_css('.profile-photo img')['src'] == '/assets/images/elvis-avatar.png'
 abort errors.uniq.join("\n") unless errors.empty?
 puts "Site checks passed: #{routes.size} pages, #{count} local links/assets, headings, anchors, bibliography, and affiliation."

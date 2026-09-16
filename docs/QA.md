@@ -5,7 +5,7 @@
   The unused gist plugin was omitted from the local invocation because its
   latest transitive dependencies no longer support macOS's bundled Ruby 2.6.
   The production plugin configuration and GitHub Pages build mechanism are unchanged.
-- `ruby scripts/check-site.rb _site`: passed, 7 primary pages and 116 local
+- `ruby scripts/check-site.rb _site`: passed, 7 primary pages and 119 local
   links/assets, including GitHub Pages' legacy extensionless HTML resolution.
 - `node scripts/check-theme.cjs`: passed (stored preference, light/dark switch,
   OS preference changes, blocked storage, labels, and legacy listener fallback).
@@ -24,6 +24,26 @@
 - Theme switching and persistence across page navigation were observed in-browser.
 - Browser error log was empty during the checked session.
 
-The publication list is deliberately a verified selection, not a comprehensive
-update of the author's bibliography. The existing CV PDF remains historical and
-is clearly identified on the CV page.
+## Follow-up content expansion
+
+- Research affiliation corrected to Qian Lab, Center for Interdisciplinary Studies,
+  School of Science, Westlake University, consistently on home, metadata, and CV.
+- Bibliography expanded from 5 to 28 entries: 10 journal/conference articles,
+  16 preprints/working papers, and 2 long-form works. The homepage selects 4.
+- The checker compares rendered paper IDs with the YAML catalog, verifies unique
+  IDs and category membership/counts, checks affiliation, and verifies the avatar
+  and downloadable card. All checks passed after the final rebuild.
+- Publication author name variants are preserved from primary sources and
+  highlighted in every entry. Browser DOM confirmed all 28 entries/highlights.
+- Superseded publication claims on the old HTML CV are replaced with a link to
+  the current bibliography. The PDF remains unchanged and labeled historical.
+- Business-card image copied byte-for-byte from the user's attachment:
+  `49297be6d553d8ae53910f8b921a31fea7d63f2ef9258f54163c107469039614`.
+- Follow-up visual QA: desktop homepage/card at 1280 px, publications at 390 px,
+  and publications/home/card at 320 px. No horizontal overflow was observed.
+- The original 1672 × 941 card loaded; its full-resolution view and download links
+  resolve locally. It remains uncropped and unchanged in both light and dark mode.
+- Local browser error log was empty. Temporary viewport overrides were reset.
+
+Metadata sources and scope limitations are in `docs/PUBLICATIONS_AUDIT.md`.
+Changes are local only; no push or deployment was performed.

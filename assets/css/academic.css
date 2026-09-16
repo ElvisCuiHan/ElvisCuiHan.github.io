@@ -52,6 +52,16 @@ h2{font-size:28px;font-weight:300;letter-spacing:-.4px;margin:0 0 26px}
 .paper-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:3px}
 .paper-links a{font-size:13px;white-space:nowrap}
 .all-publications{font-size:14px;margin:28px 0 0}
+.business-card{margin:48px 0 0;padding-top:30px;border-top:1px solid var(--rule)}
+.business-card-heading{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+.business-card-heading h2{margin:0}
+.business-card-heading>a{font-size:13px}
+.business-card figure{margin:0}
+.business-card figure>a{display:block}
+.business-card img{display:block;width:100%;border-radius:4px}
+.business-card figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+.paper-note{font-size:12px;color:var(--muted);margin-top:3px}
+.publication-count{font-size:14px;color:var(--muted);font-weight:400;letter-spacing:0;margin-left:8px}
 .profile-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:50px 0 18px;font-size:15px}
 .file-type{font-size:10px;border:1px solid var(--rule);padding:2px 3px;border-radius:2px;vertical-align:middle}
 .site-footer{max-width:var(--width);margin:36px auto 0;padding:20px 0 24px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}
