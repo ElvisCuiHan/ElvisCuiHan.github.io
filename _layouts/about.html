@@ -18,20 +18,6 @@ layout: default
     {% include paper-list.html papers=selected %}
     <p class="all-publications"><a href="{{ '/publications/' | relative_url }}">All publications &amp; preprints <span aria-hidden="true">→</span></a></p>
   </section>
-  <section class="writing-section" aria-labelledby="writing-title">
-    <div class="writing-heading"><h2 id="writing-title"><a href="{{ '/writing/' | relative_url }}">Writing</a></h2><span>Probability &amp; Perspective</span></div>
-    {% include featured-essay.html %}
-    {% include translations-preview.html %}
-  </section>
-  <section class="mentors-preview" aria-labelledby="mentors-title">
-    <div class="writing-heading"><h2 id="mentors-title"><a href="{{ '/mentors/' | relative_url }}">Mentors</a></h2><span lang="zh-CN">师恩 · 铭记于心</span></div>
-    <p class="mentors-preview-deck">The people behind the way I work.</p>
-    <p class="mentors-preview-intro">Lessons in care, rigor, patience and purpose. A growing collection of personal recollections.</p>
-    <ol class="mentors-preview-list">
-      {% for mentor in site.data.mentors %}<li><a href="{{ '/mentors/' | relative_url }}#{{ mentor.id }}"><span class="mentor-preview-number" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span><span>{{ mentor.name }}</span><span class="mentor-preview-theme">{{ mentor.theme }}</span><span aria-hidden="true">↗</span></a></li>{% endfor %}
-    </ol>
-    <p class="all-publications"><a href="{{ '/mentors/' | relative_url }}">Read my recollections <span aria-hidden="true">→</span></a></p>
-  </section>
   <section id="friends" class="friends-section" aria-labelledby="friends-title">
     <div class="writing-heading"><h2 id="friends-title"><a href="{{ '/friends/' | relative_url }}">Friends</a></h2><span lang="zh-CN">友朋 · 心怀谢意</span></div>
     <p class="friends-preview-intro" id="friend-yating-zou">With a special thank-you to Yating Zou for the styling inspiration behind this little corner of the web.</p>

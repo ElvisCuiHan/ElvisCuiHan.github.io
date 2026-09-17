@@ -9,6 +9,9 @@ pages are retained. The header offers three explicit appearances:
 **Ink & Paper** (classical ink landscape), **Day** (clean white), and **Night**
 (clean dark). Your choice is saved across pages and reloads. The landscape is
 decorative, appears only in Ink & Paper, and is omitted from print.
+Use `/?appearance=ink` to open the landscape directly, or `?appearance=day`
+and `?appearance=night` for the other appearances. Switching the menu updates
+an existing appearance parameter, so a later reload respects the new choice.
 
 **Release authorized by the author on 2026-09-17.** This edition was developed in
 a separate worktree on `polish/live-scholar-20260917`, based on `origin/master`
@@ -22,11 +25,11 @@ describe the pre-release stages; this authorization supersedes their release hol
 - Publications: `_data/papers.yml` (`selected: true` displays an entry on the homepage)
 - Web CV: `_pages/cv.md`; print this page to save a current PDF
 - Writing page: `_pages/writing.md`
-- Featured essay: `_includes/featured-essay.html` (shared by About and Writing)
+- Featured essay: `_includes/featured-essay.html` (Writing page)
 - Reading catalogue: `_data/translations.json` (source authors and per-entry access status)
-- Translations page: `_pages/translations.html`; shared entry module: `_includes/translations-preview.html`
+- Translations page: `_pages/translations.html`; Writing entry module: `_includes/translations-preview.html`
 - Mentor names, sources and recollections: `_data/mentors.yml`
-- Mentors page: `_pages/mentors.html` (homepage links to the same stable anchors)
+- Mentors page: `_pages/mentors.html` (accessible from the main navigation)
 - Friends and personal acknowledgements: `_data/friends.yml`
 - Friends page: `_pages/friends.html` (top navigation, footer, and a short homepage entry)
 - Navigation: `_data/navigation.yml`
@@ -51,7 +54,10 @@ advisor roster or third-party quotations. Add author-approved longer pieces to
 each entry's optional `essay_paragraphs` list. Keep IDs unchanged so existing
 links continue to work. See [mentor content notes](docs/MENTORS_CONTENT.md).
 
-**Translations & Notes** is linked from About and Writing. It contains eleven
+The homepage omits Writing, Translations and Mentors previews to keep the page
+focused. Their content remains intact on independent pages.
+
+**Translations & Notes** is linked from Writing. It contains eleven
 unofficial Chinese reading projects, led by *Wasserstein Regression*. The
 Advani–Saxe–Sompolinsky edition has a CC BY 4.0 Chinese PDF; the other ten entries
 provide metadata and original-source links only. Do not copy restricted PDFs

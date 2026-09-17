@@ -82,7 +82,7 @@ errors << 'Given name emphasis missing' unless homepage.at_css('h1 strong').text
 errors << 'Decorative landscape missing' unless homepage.at_css('.scholar-backdrop[aria-hidden="true"]') && File.file?(File.join(root, 'assets/images/ink-landscape-v1.jpg'))
 essay_url = 'https://mp.weixin.qq.com/s/hAIXft_2gpk3P9Mvs0X_RQ'
 writing = Nokogiri::HTML(File.read(File.join(root, 'writing/index.html')))
-[homepage, writing].each do |page|
+[writing].each do |page|
   essay = page.at_css('.essay-feature')
   errors << 'Author-provided essay entry missing' unless essay && essay.text.include?('鞅的辉煌与苦难') && essay.at_css("a[href='#{essay_url}']")
   errors << 'Essay must not be presented as pending' if essay && essay.text.match?(/pending|awaiting/i)
@@ -94,7 +94,8 @@ mentor_page = Nokogiri::HTML(File.read(File.join(root, 'mentors/index.html')))
 mentor_ids = %w[ping-fang gaoxiang-ye haoran-li weng-kee-wong dorota-dabrowska jingyi-jessica-li hong-qian]
 errors << 'Mentors must preserve the author-supplied order' unless mentors.map { |m| m['id'] } == mentor_ids
 errors << 'Rendered mentors differ from the data' unless mentor_page.css('.mentor-entry').map { |n| n['id'] } == mentor_ids
-errors << 'Homepage mentor links differ from the data' unless homepage.css('.mentors-preview-list a').map { |n| n['href'] } == mentor_ids.map { |id| "/mentors/##{id}" }
+errors << 'Homepage should not duplicate Writing, Translations or Mentors' unless homepage.css('.writing-section, .translations-preview, .mentors-preview, .essay-feature').empty?
+errors << 'Independent page navigation must remain available' unless ['/writing/','/mentors/'].all? { |href| homepage.at_css(".nav-links a[href='#{href}']") }
 mentors.each do |mentor|
   entry = mentor_page.at_css("##{mentor['id']}")
   errors << "Missing mentor memory: #{mentor['id']}" unless entry && [mentor['recollection'], mentor['memory_zh']].all? { |t| entry.text.include?(t) }
@@ -131,7 +132,7 @@ errors << 'Only the reviewed Advani Chinese PDF may be offered' unless translati
 errors << 'Reviewed translation PDF differs from source' unless Digest::SHA256.file(File.join(root, pdf_path.delete_prefix('/'))).hexdigest == 'cb9ba63dc0e0bfecdfe0645d98f32be63ea449792edcf5c4bc8112cdab6c471e'
 errors << 'Missing translation license or AI disclosure' unless translation_page.at_css('a[href="https://creativecommons.org/licenses/by/4.0/"]') && translation_page.text.include?('Codex-assisted')
 errors << 'Translation page should keep Writing highlighted' unless translation_page.at_css('.nav-links a.active[href="/writing/"]')
-[homepage, writing].each do |page|
+[writing].each do |page|
   errors << 'Missing translation shelf entry points' unless page.css('.reading-preview-item').map { |node| node['href'] } == ['/translations/#wasserstein-2023', '/translations/#advani-2020']
 end
 abort errors.uniq.join("\n") unless errors.empty?
