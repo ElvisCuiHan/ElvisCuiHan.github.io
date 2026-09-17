@@ -1,0 +1,74 @@
+---
+layout: default
+title: Translations & Notes
+permalink: /translations/
+nav_parent: /writing/
+excerpt: "Chinese translations and annotated reading editions collected by Elvis Han Cui, with original sources and access notes."
+---
+<article class="translation-page">
+  <header class="translation-heading">
+    <p class="section-kicker"><a href="{{ '/writing/' | relative_url }}">Writing</a><span aria-hidden="true"> / </span><span lang="zh-CN">中文译注</span></p>
+    <h1>Translations &amp; Notes</h1>
+    <p class="translation-deck">Reading closely.<br>Thinking across languages.</p>
+    <p class="translation-intro">Chinese translations, reading guides and marginal notes from my ongoing study of statistics, mathematics and life science.</p>
+    <p class="translation-byline">Collected by Elvis Han Cui <span aria-hidden="true">·</span> Unofficial reading editions</p>
+  </header>
+
+  {% assign lead = site.data.translations.entries | where: 'id', 'wasserstein-2023' | first %}
+  <section class="translation-lead translation-entry" id="{{ lead.id }}" aria-labelledby="wasserstein-title">
+    <div class="reading-placard" aria-hidden="true">
+      <span class="placard-series">译注 / 01</span>
+      <span class="placard-title">Wasserstein<br>Regression</span>
+      <span class="placard-chinese" lang="zh-CN">回归之几何<br>分布之语言</span>
+      <span class="placard-footer">Chinese Reading Edition<br>32 pages · Unofficial</span>
+    </div>
+    <div class="translation-lead-body">
+      <p class="translation-eyebrow">Featured reading <span aria-hidden="true">·</span> {{ lead.topicEn }}</p>
+      <h2 id="wasserstein-title">{{ lead.title }}</h2>
+      <p class="translation-title-zh" lang="zh-CN">{{ lead.titleZh }} · 中文译注</p>
+      <p class="translation-authors"><span>Original authors</span>{{ lead.originalAuthors }}</p>
+      <p class="translation-source">{{ lead.venue }} ({{ lead.year }})</p>
+      <p class="translation-description">{{ lead.pages }} pages of Chinese translation with chapter guides, a terminology table and notes on statistical history.</p>
+      <p class="translation-status">Internal study edition <span aria-hidden="true">·</span> Catalogue only</p>
+      <div class="translation-links"><a href="{{ lead.originalUrl }}">Original article <span aria-hidden="true">↗</span></a><a href="{{ lead.alternateUrl }}">Authors’ preprint <span aria-hidden="true">↗</span></a></div>
+      <p class="translation-rights">The source edition is marked for internal study and is not authorized by the original authors or journal. The translated PDF is not offered for download here.</p>
+    </div>
+  </section>
+
+  <nav class="reading-index" aria-label="Translation subjects">
+    <a href="#statistics-learning"><span aria-hidden="true">01</span> Statistics &amp; Learning</a>
+    <a href="#mathematics-science"><span aria-hidden="true">02</span> Mathematics &amp; Science</a>
+    <a href="#life-physics"><span aria-hidden="true">03</span> Life &amp; Physics</a>
+  </nav>
+  {% assign topics = 'Statistics & learning|Mathematics & science|Life & physics' | split: '|' %}
+  {% assign topic_ids = 'statistics-learning|mathematics-science|life-physics' | split: '|' %}
+  {% for topic in topics %}
+  <section class="translation-group" id="{{ topic_ids[forloop.index0] }}" aria-labelledby="{{ topic_ids[forloop.index0] }}-title">
+    <header class="translation-group-heading"><p class="section-kicker">{{ forloop.index | prepend: '0' }} / READING SHELF</p><h2 id="{{ topic_ids[forloop.index0] }}-title">{{ topic | replace: '& learning', '& Learning' | replace: '& science', '& Science' | replace: '& physics', '& Physics' }}</h2></header>
+    {% assign books = site.data.translations.entries | where: 'topicEn', topic %}
+    {% for book in books %}{% unless book.id == lead.id %}
+    <article class="translation-entry reading-record" id="{{ book.id }}">
+      <div class="reading-year"><span>{{ book.year }}</span><small>Original work</small></div>
+      <div class="reading-record-body">
+        <h3 lang="zh-CN">{{ book.titleZh }}</h3>
+        <p class="reading-original-title">{{ book.title }}</p>
+        <p class="reading-original-authors">Original authors: {{ book.originalAuthors }}</p>
+        <p class="translation-status">{% if book.status == 'hosted-translation' %}Chinese PDF available <span aria-hidden="true">·</span> {{ book.pages }} pages{% else %}Catalogue only <span aria-hidden="true">·</span> Rights review{% endif %}</p>
+        <p class="translation-rights">{{ book.noteEn }}</p>
+        <div class="translation-links">
+          {% if book.pdf %}<a href="{{ book.pdf | relative_url }}" class="translation-pdf">Read Chinese PDF <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>{% endif %}
+          <a href="{{ book.originalUrl }}">{% if book.id == 'golden-age-2026' %}Original report{% else %}Original source{% endif %} <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>
+          {% if book.license %}<a href="https://creativecommons.org/licenses/by/4.0/">{{ book.license }} <span aria-hidden="true">↗</span></a>{% endif %}
+        </div>
+        {% if book.id == 'advani-2020' %}<details class="translation-attribution"><summary>Edition, attribution &amp; changes</summary><p>Original: Madhu S. Advani, Andrew M. Saxe and Haim Sompolinsky (2020), <em>Neural Networks</em> 132, 428–446. © 2020 The Authors. <a href="{{ book.licenseEvidence }}">Original open-access record</a>.</p><p>This unofficial edition, dated September 7, 2026, adds a Chinese translation, annotations, reading guides, a glossary and a cover illustration. The edition credits Codex-assisted translation, LaTeX typesetting and checking. Its new translation and layout are also offered under CC BY 4.0. No endorsement by the original authors or publisher is implied.</p></details>{% endif %}
+      </div>
+    </article>
+    {% endunless %}{% endfor %}
+  </section>
+  {% endfor %}
+  <footer class="translation-colophon">
+    <p lang="zh-CN">读有所思，译有所注。</p>
+    <p>A reading collection, not a list of original research publications. Original authorship is retained throughout. These are unofficial translations; AI assistance is disclosed in the source editions where applicable. Years refer to the original works, not the dates of translation. A catalogue entry does not imply permission to redistribute its full text.</p>
+    <a href="{{ '/writing/' | relative_url }}">Back to Writing <span aria-hidden="true">←</span></a>
+  </footer>
+</article>

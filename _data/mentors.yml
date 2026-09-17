@@ -1,0 +1,86 @@
+# Order and recollections supplied by Elvis Han Cui, 2026-09-17.
+# These are personal memories, not independently sourced quotations.
+# Keep stable IDs for deep links. Optional `essay_paragraphs` can hold later
+# author-approved English paragraphs; do not invent anecdotes to fill the page.
+- id: ping-fang
+  name: Ping Fang
+  chinese_name: 方萍
+  institution: Zhejiang University
+  field: Environmental & Resource Sciences
+  theme: Care
+  lesson: Take care with the work.
+  recollection: Professor Fang taught me to take my work seriously and do it with care.
+  memory_zh: 方萍老师教我，做事要认真。
+  source_url: https://zjnews.zjol.com.cn/zjnews/hznews/201907/t20190712_10574696.shtml
+  source_label: Public reference · Zhejiang Online
+  source_note: Historical affiliation reported in July 2019; no current appointment or retirement status inferred.
+  supporting_url: https://pubmed.ncbi.nlm.nih.gov/26164271/
+
+- id: gaoxiang-ye
+  name: Gaoxiang Ye
+  chinese_name: 叶高翔
+  institution: Zhejiang University
+  field: Physics
+  theme: Reproducibility
+  lesson: An experiment must stand up to repetition.
+  recollection: Professor Ye taught me that an experiment should be reproducible whenever it is repeated.
+  memory_zh: 叶高翔老师教我，实验应当经得起重复。
+  source_url: https://physics.zju.edu.cn/icmp/2020/0113/c45016a1951095/page.htm
+  source_label: University profile
+
+- id: haoran-li
+  name: Haoran Li
+  chinese_name: 李浩然
+  institution: Zhejiang University
+  field: Chemistry
+  theme: Purpose
+  lesson: Be someone who contributes to society.
+  recollection: Professor Li taught us to become people whose work is useful to society.
+  memory_zh: 李浩然老师教我们，要做一个对社会有用的人。
+  source_url: https://person.zju.edu.cn/0095075
+  source_label: University profile
+
+- id: weng-kee-wong
+  name: Weng Kee Wong
+  institution: UCLA
+  field: Biostatistics
+  theme: Patience
+  lesson: Settle into the work; you will come to love it.
+  recollection: I carry with me Professor Wong’s lesson that, whatever the task, patient and wholehearted attention can grow into love for the work.
+  memory_zh: Weng Kee Wong 老师教我，任何事情沉下来做，总会喜欢上。
+  source_url: https://ph.ucla.edu/about/faculty-staff-directory/weng-kee-wong
+  source_label: University profile
+
+- id: dorota-dabrowska
+  name: Dorota M. Dabrowska
+  institution: UCLA
+  field: Biostatistics
+  theme: Mathematical imagination
+  lesson: The mathematics, and the people behind it.
+  recollection: Professor Dabrowska taught me measure theory and told me stories about mathematicians.
+  memory_zh: Dorota Dabrowska 老师教我测度论，也为我讲述数学家的故事。
+  source_url: https://ph.ucla.edu/about/faculty-staff-directory/dorota-m-dabrowska
+  source_label: University profile
+
+- id: jingyi-jessica-li
+  name: Jingyi Jessica Li
+  institution: UCLA
+  field: Statistics & Biology
+  theme: Research
+  lesson: Learn how to do research.
+  recollection: Professor Li taught us how to do scientific research.
+  memory_zh: Jingyi Jessica Li 老师教我们做科研。
+  source_url: https://ph.ucla.edu/about/faculty-staff-directory/jingyi-jessica-li
+  source_label: University profile
+
+- id: hong-qian
+  name: Hong Qian
+  chinese_name: 钱紘
+  institution: Westlake University
+  field: Interdisciplinary Studies
+  theme: Science & mentorship
+  lesson: Learn to be a scientist—and to teach.
+  recollection: Professor Qian teaches us how to be scientists, and how to educate students.
+  memory_zh: 钱紘老师教我们当科学家，也教我们怎样教育学生。
+  source_url: https://en.westlake.edu.cn/faculty/hong-qian.html
+  source_label: University profile

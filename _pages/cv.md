@@ -1,94 +1,69 @@
 ---
 layout: archive
-title: "CV"
+title: "Curriculum Vitae"
 permalink: /cv/
-author_profile: true
+excerpt: "Elvis Han Cui: statistics, stochastic dynamics, quantitative biology and clinical research."
 redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<p class="section-kicker">ELVIS HAN CUI</p>
+<p class="cv-intro">One trajectory, many scales.<br>Connecting statistics and the life sciences through rigorous inference.</p>
 
-Current appointment
-------
-**Postdoctoral Researcher**, **Qian Lab**, [Center for Interdisciplinary Studies](https://cis.westlake.edu.cn/en/), School of Science, Westlake University, Hangzhou, China. Working with **Professor Hong Qian (钱紘)**.
+<div class="cv-tools">
+<button type="button" class="print-cv" data-print-cv>Print / Save as PDF</button>
+<a href="https://www.linkedin.com/in/elvis-han-cui-a9911b172">LinkedIn ↗</a>
+<a href="{{ '/publications/' | relative_url }}">Complete bibliography →</a>
+<a href="{{ '/assets/images/elvis-business-card.png' | relative_url }}">Personal card ↗</a>
+</div>
 
-[Download CV (PDF)]({{ '/files/CV.pdf' | relative_url }}) · [Publications]({{ '/publications/' | relative_url }})
+<div class="cv-grid">
+<nav class="cv-aside" aria-label="CV sections">
+<a href="#appointment">Appointment</a>
+<a href="#education">Education</a>
+<a href="#experience">Experience</a>
+<a href="#methods">Expertise</a>
+<a href="#honors">Honors</a>
+</nav>
+<div>
+<section id="appointment" class="cv-section">
+<h2>Current appointment</h2>
+<div class="career-entry"><span class="career-date">Current<br>Hangzhou, China</span><div><h3>Westlake University</h3><p class="role">Postdoctoral Researcher · Qian Lab</p><p>Center for Interdisciplinary Studies, School of Science. Working with Professor Hong Qian on statistical inference, stochastic dynamics and quantitative biology.</p><p>Developing reproducible workflows for parameter estimation, molecular diffusion and hidden-state dynamics using fluorescence correlation spectroscopy and photon-counting data.</p></div></div>
+</section>
 
-<p class="quiet-note">The PDF and historical experience entries below are retained from the earlier website and may not reflect the latest appointments. The current appointment, completed Ph.D., and linked publications page have been updated separately.</p>
+<section id="education" class="cv-section">
+<h2>Education</h2>
+<div class="career-entry"><span class="career-date">2024 · Ph.D.<br>2020 · M.S.</span><div><h3>University of California, Los Angeles</h3><p class="role">Biostatistics</p><p>Ph.D. dissertation: <em>Nature-inspired Metaheuristics for Biostatistical and Biomedical Research.</em> Advisors: Weng Kee Wong and Gang Li.</p></div></div>
+<div class="career-entry"><span class="career-date">2018</span><div><h3>Zhejiang University</h3><p class="role">Bachelor’s degree · Applied Bioscience</p></div></div>
+</section>
 
-Education
-------
-* B.S. in Environment Science, Zhejiang University, 2018
-* M.S. in Biostatistics, University of California, Los Angeles, 2020
-* Ph.D. in Biostatistics, University of California, Los Angeles, 2024
+<section id="experience" class="cv-section">
+<h2>Research &amp; industry</h2>
+<div class="career-entry"><span class="career-date">Jul 2026</span><div><h3>Westlake University</h3><p class="role">Visiting Scholar · Hong Qian’s Group</p><p>Developed Python workflows for FCS photon-counting analysis, estimation and visualization; explored stochastic and semi-Markov models of molecular dynamics.</p></div></div>
+<div class="career-entry"><span class="career-date">Apr – Jun 2026</span><div><h3>IQVIA · Kuntuo, cFSP</h3><p class="role">Senior Statistician</p><p>Worked on AI-assisted protocol-to-CSR workflows, with applications in metabolic clinical research and real-world evidence.</p></div></div>
+<div class="career-entry"><span class="career-date">Sep 2025 –<br>Mar 2026</span><div><h3>Hengrui Pharmaceuticals</h3><p class="role">Associate Manager of Biostatistics</p><p>Supported Phase I–III oncology and metabolic development programs; contributed to retrieval-augmented workflows and evidence synthesis for clinical development.</p></div></div>
+<div class="career-entry"><span class="career-date">Oct 2024 –<br>Jul 2025</span><div><h3>University of California, Irvine</h3><p class="role">Senior Statistician · Department of Neurology</p><p>Conducted statistical analyses for Alzheimer’s disease biomarker and clinical research, including subgroup and target analyses. Developed statistical sections, study protocols and power analyses for grant proposals.</p></div></div>
+<div class="career-entry"><span class="career-date">Jan 2022 –<br>Sep 2024</span><div><h3>University of California, Los Angeles</h3><p class="role">Graduate Student Researcher · Biostatistics</p><p>Investigated adaptive trial design, toxicological experimental design, Bayesian modeling and optimization for multimodal data.</p></div></div>
+<div class="career-entry"><span class="career-date">Jun – Oct 2022</span><div><h3>Novartis</h3><p class="role">Biostatistician Intern · Early Development Analytics</p><p>Developed and quality-controlled CDISC-aligned ADaM datasets for proof-of-concept study analysis.</p></div></div>
+<div class="career-entry"><span class="career-date">Sep 2020 –<br>Aug 2021</span><div><h3>Zhejiang Lab</h3><p class="role">Artificial Intelligence Researcher</p><p>Studied representation learning and few-shot learning for multimodal data.</p></div></div>
+</section>
 
-Research Experience
-------
-- *Department of Biostatistics, UCLA* \(Supervisor: Gang Li\)
+<section id="methods" class="cv-section">
+<h2>Methods &amp; tools</h2>
+<ul class="skill-lines">
+<li><strong>Statistics &amp; scientific inference</strong>Clinical trial design, survival analysis, optimal experimental design, stochastic and semi-Markov models, FCS and biophysical data.</li>
+<li><strong>Scientific computing</strong>Python, R, SQL, Linux/Unix and Git; reproducible analysis, testing and visualization.</li>
+<li><strong>AI &amp; research workflows</strong>LLM applications, retrieval-augmented generation, vector search, agent-assisted workflows and scientific optimization.</li>
+<li><strong>Software engineering</strong>REST APIs, CI/CD, Docker and cloud-based workflows.</li>
+</ul>
+<p>Journal articles, conference papers and preprints are maintained in the <a href="{{ '/publications/' | relative_url }}">publication catalog</a>, with their individual status and source links.</p>
+</section>
 
-**Graduate Student Researcher** \(Dec 2021 - Present\)
+<section id="honors" class="cv-section">
+<h2>Selected honors</h2>
+<ul><li>Dissertation Year Fellowship · UCLA</li><li>Irma Polaski Fellowship · UCLA Fielding School of Public Health</li></ul>
+</section>
+</div>
+</div>
 
-• Developing semi-parametric Bayesian methods and algorithms for instrumental variable analysis with applications to analyzing the UK Biobank (UKB) cancer data.  I worked with two-stage regression models with right and interval censored data, Cox’s multiplicative model, AFT model and competing risk models.
-
-•Analyzed Women's Healthy Eating and Living (WHEL) data using different survival regression models stratified for various covariates as risk factors. Performed exploratory data analysis using R (KMsurv, survivor, ggplot2 packages).
-
-- *Department of Statistics, UCLA* \(Supervisor: Jessica Jingyi Li\)
-
-**Graduate Student Researcher** \(March 2021 – November 2021\)
-
-•Initiated and led a group to develop computational and visualization tools for scRNA data. Developed scGTM, a Python package for building kinetics models of two variables with various shapes of correlation (https://github.com/ElvisCuiHan/scGTM) (See publication and pre-print 2 and 6). 
-
-•Identified immune genes with increasing patterns using scGTM and gene oncology (GO) analysis. Such findings help biologists to detect genes that of great medical and biological interest. Shortened ~50\% running time on three large genomic (scRNA seq) datasets by proposing a modified optimization algorithm (PSO) to enhance large scale and parallel computation.
-
-- *School of Education and Information Studies, UCLA* \(Supervisor: Minjeong Jeon\)
-
-**Graduate Student Researcher** \(March 2020 – July 2020\)
-
-•Designed various EM algorithms for large scale data mining with x1000 times faster than SOTA packages in R and Julia (https://github.com/ElvisCuiHan/computational-methods-for-large-scale-data-mining) (See publication and pre-print 8).
-
-•Helped to improve the quality of Math teaching in elementary schools by analyzing longitudinal educational data using item response theory (IRT) models.
-
-- *Department of Biostatistics, UCLA* \(Supervisor: Weng Kee Wong\)
-
-**Finding optimal designs in a two parameter binary regression model** \(April 2021 –July 2021\)                                                                                                
-•Created a web-based tool for implementing a R-code on the Shiny Platform to find different types of optimal designs for a toxicological study using sea urchins, and developed a characterization theorem based on an equivalence theorem to confirm optimality of a 2-point design for regression models with a binary outcome. (See publication and pre-print 1 and 7, respectively).
-
-Work experience
-------
-- *Artificial Intelligence Research Center, Zhejiang Lab* \(Hangzhou, China\)
-
-**Artificial Intelligence Researcher** \(Sept 2020 – Aug 2021\)
-(This work was done under confinement in China due to the pandemic.)
-
-Currently have published/submitted three manuscripts on top conferences in artificial intelligence and machine learning (See publication and pre-print 3, 4 and 5). Research projects has fostered a collaboration with an AI research company to improve the quality and efficiency of data augmentation in aerospace industry.
-
-Designed a manifold learning framework for data augmentation and few shot image classification problem, which improved 30\% accuracy of on the benchmark few shot datasets and enhanced the smoothness of interpolation by 50\% of the baseline on benchmark datasets. Developed a fast projection embedding algorithm for few shot object detection models and shortened ~10\% running time of the models (Faster-RCNN, Yolo-V3 and other few shot object detection models). 
-
-- *Sperax, Information Technology and Services*, Menlo Park, California, Work Remotely
-
-**Statistician** \(Aug 2020 – Oct 2020\)
-
-Developed a stochastic Markov dynamic model framework to simulate the stream of nodes of the system in Python. 
-
-Results helped the team to make decision on the distribution of Sperax coin and are used to give a better understanding of the working mechanism of Sperax coin.
-  
-Skills
-------
-- Languages: Python, R, SAS, MATLAB, WinBUGS, Stata, JAVA, C, SQL, Julia.
-- Courses (already taken or planning to take before summer 2022): Core classes in Biostatistics, Optimal design with applications to biomedical studies, survival analysis, longitudinal data analysis, spatial data modeling, adaptive designs for clinical trials, Markov Chain Monte Carlo, Graphical models, linear statistical models, multivariate analysis, stochastic models, and sampling methods. 
-- Teaching Assistant for the following classes to date: Biostat 250A (Linear Models), Biostat 203A (SAS and R), Biostat 203B (Data Science) and Biostat 100A (Stata).
-
-Publications
-------
-See the [updated bibliography]({{ '/publications/' | relative_url }}) for journal and conference articles, preprints, the monograph, and the doctoral dissertation, with links to their public records.
-  
-Teaching
-------
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Award and Honors
-------
-Irma Polaski 2-year Fellowship for a foreign student in the Fielding School of Public Health for academic excellence.
+<div class="editor-note"><p>Prepared from the author's July 2026 CV, personal card and previously confirmed current appointment. The public LinkedIn link was checked, but the full profile could not be accessed. The postdoctoral start month has not been inferred; private phone numbers and internal project identifiers are omitted. The Huadong Medicine role shown on the card still needs a title and dates. The print button can save this page as a PDF; the source CV remains unchanged.</p></div>

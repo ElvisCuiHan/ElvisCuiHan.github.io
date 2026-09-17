@@ -1,7 +1,13 @@
 main:
-  - title: about
+  - title: About
     url: /
-  - title: publications
+  - title: Publications
     url: /publications/
-  - title: cv
+  - title: CV
     url: /cv/
+  - title: Writing
+    url: /writing/
+  - title: Mentors
+    url: /mentors/
+  - title: Friends
+    url: /friends/

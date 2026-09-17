@@ -1,0 +1,31 @@
+---
+layout: default
+title: Friends
+permalink: /friends/
+excerpt: Friends, good company, and a few heartfelt words of thanks.
+---
+<article class="friends-page">
+  <header class="page-heading friends-heading">
+    <p class="section-kicker">Good company <span lang="zh-CN">· 友朋</span></p>
+    <h1>Friends</h1>
+    <p class="friends-deck">A little corner of the web.<br>A great deal of gratitude.</p>
+    <p class="friends-intro">For the friends whose generosity, ideas and good taste make the journey richer.</p>
+  </header>
+  <div class="friends-acknowledgements">
+    {% for friend in site.data.friends %}
+    <section class="friend-entry" id="friend-{{ friend.id }}" aria-labelledby="{{ friend.id }}-title">
+      <div class="friend-identity">
+        <p class="friend-note">{{ friend.note }}</p>
+        <h2 class="friend-name" id="{{ friend.id }}-title"><a href="{{ friend.url }}">{{ friend.name }} <span aria-hidden="true">↗</span></a></h2>
+        {% if friend.chinese_name %}<p class="friend-chinese-name" lang="zh-CN">{{ friend.chinese_name }}</p>{% endif %}
+        <a class="friend-visit" href="{{ friend.url }}">Visit website <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="friend-gratitude"><p>{{ friend.thanks }}</p>{% if friend.closing %}<p class="friend-closing">{{ friend.closing }}</p>{% endif %}</div>
+    </section>
+    {% endfor %}
+  </div>
+  <footer class="friends-colophon">
+    <p lang="zh-CN">心怀谢意，来日方长。</p>
+    <a href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> Back to About</a>
+  </footer>
+</article>
