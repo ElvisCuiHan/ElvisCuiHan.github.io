@@ -34,6 +34,9 @@ No new hosting service, domain, permissions or access changes.
   below the sticky header, not hidden behind it.
 - Tested related-card navigation Bender -> Ren, return to topic shelf, and
   catalogue button -> Xu. Tested Day -> Night -> Ink & Paper appearance cycle.
+- The final Writing-page screenshot revealed uneven CTA baselines when one
+  caption wrapped. A small flex-column adjustment aligns the three CTAs without
+  fixed card heights. Restored Day and the default viewport after testing.
 - Browser testing is not a fresh scientific review or full assistive-technology
   audit. No new source PDF, private course file, scratch output or screenshot is
   added to the public repository. PDF buttons go to the publisher, not mirrors.

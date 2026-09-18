@@ -42,7 +42,9 @@
 .reading-button--primary,.translation-links a.reading-button--primary{border-color:var(--fg);background:var(--fg);color:var(--bg)}
 .reading-button--primary:hover,.translation-links a.reading-button--primary:hover{border-color:var(--accent);background:var(--accent);color:var(--bg)}
 .translation-links{align-items:center;gap:10px}
-.reading-preview-cta{display:inline-flex!important;align-items:center;gap:14px;margin-top:18px;padding:8px 12px;border:1px solid var(--rule);border-radius:5px;font-size:11px;color:var(--fg);min-height:38px}
+.reading-preview-body{display:flex;flex-direction:column;align-items:flex-start}
+.reading-preview-note{margin-bottom:18px}
+.reading-preview-cta{display:inline-flex!important;align-items:center;gap:14px;margin-top:auto;padding:8px 12px;border:1px solid var(--rule);border-radius:5px;font-size:11px;color:var(--fg);min-height:38px}
 .reading-preview-item:hover .reading-preview-cta{border-color:var(--accent);background:var(--soft)}
 @media(min-width:761px){.reading-preview-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
 @media(max-width:600px){.reading-prose{font-size:16px}.reading-prose h2,.reading-essay-footer h2{font-size:23px}.reading-source p:first-of-type{font-size:17px}.reading-source-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:25px}.reading-source-links .reading-button{padding:10px 8px;gap:8px}.reading-subtitle{font-size:16px}.reading-essay-header .section-kicker{letter-spacing:.8px}.reading-essay-footer ul{grid-template-columns:1fr}.reading-essay-footer a.reading-related-link{padding:17px}}
