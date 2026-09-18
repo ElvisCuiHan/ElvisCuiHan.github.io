@@ -4,28 +4,28 @@ title: Mentors
 permalink: /mentors/
 excerpt: Personal recollections of the teachers who shaped how I work, think, and learn.
 ---
-<article class="mentors-page mentors-page--compact">
+<article class="mentors-page mentors-page--buttons">
   <header class="page-heading mentor-heading">
-    <p class="section-kicker">Gratitude, in practice <span lang="zh-CN">· 师恩</span></p>
     <h1>Mentors</h1>
-    <p class="mentor-intro">With gratitude to the teachers who shaped how I work, think and learn.</p>
+    <p class="mentor-intro">With gratitude. Select a name to read more.</p>
   </header>
-  <div class="mentor-recollections">
+  <div class="mentor-recollections mentor-buttons">
     {% for mentor in site.data.mentors %}
-    <section class="mentor-entry" id="{{ mentor.id }}" aria-labelledby="{{ mentor.id }}-title">
-      <div class="mentor-identity">
-        <h2 id="{{ mentor.id }}-title"><a href="{{ mentor.source_url }}" aria-label="{{ mentor.name }} — {{ mentor.source_label }}">{{ mentor.name }}<span aria-hidden="true"> ↗</span></a></h2>
-        <p class="mentor-affiliation">{{ mentor.institution }} · {{ mentor.field }}</p>
-      </div>
-      <div class="mentor-memory">
-        <p class="mentor-recollection">{{ mentor.recollection }}</p>
-        <p class="mentor-memory-zh" lang="zh-CN">{{ mentor.memory_zh }}</p>
-        {% if mentor.essay_paragraphs %}<details class="mentor-expanded"><summary>Read the longer reflection</summary>{% for paragraph in mentor.essay_paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}</details>{% endif %}
-      </div>
-    </section>
+    <div class="mentor-entry" id="{{ mentor.id }}">
+      <details class="mentor-disclosure" name="mentor-recollections">
+        <summary class="mentor-button" id="{{ mentor.id }}-title"><span>{{ mentor.name }}</span><span class="mentor-toggle" aria-hidden="true"></span></summary>
+        <div class="mentor-memory">
+          <p class="mentor-affiliation">{{ mentor.institution }} · {{ mentor.field }}</p>
+          <p class="mentor-recollection">{{ mentor.recollection }}</p>
+          <p class="mentor-memory-zh" lang="zh-CN">{{ mentor.memory_zh }}</p>
+          {% if mentor.essay_paragraphs %}<details class="mentor-expanded"><summary>Read the longer reflection</summary>{% for paragraph in mentor.essay_paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}</details>{% endif %}
+        </div>
+      </details>
+      <a class="mentor-source" href="{{ mentor.source_url }}" target="_blank" rel="noopener noreferrer" title="{{ mentor.name }} — {{ mentor.source_label }}" aria-label="{{ mentor.name }} — {{ mentor.source_label }} (opens in a new tab)">Link <span aria-hidden="true">↗</span></a>
+    </div>
     {% endfor %}
   </div>
   <footer class="mentor-colophon">
-    <p>Personal recollections, not verbatim quotations or a formal advisor list. Names link to biographical references.</p>
+    <p>Personal recollections, not verbatim quotations or a formal advisor list.</p>
   </footer>
 </article>

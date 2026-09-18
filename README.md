@@ -7,9 +7,15 @@ research questions, three connected themes, annotated featured papers and the
 personal card. A navy / ivory / muted-gold palette connects the site to the card;
 the original ink landscape, illustrated avatar and independent pages remain.
 The publications page introduces the same research threads before the complete
-28-record bibliography. The seven education/work-history links now live in a
-compact logo directory on **External Links**, not the homepage. They do not
-represent institutional partnerships. **Publication authorized by the author on
+28-record bibliography. In the latest local refinement, **External Links** contains
+only one “Thanks, Yating Zou” button for the website styling. The institutional
+directory is no longer rendered, and the repeated homepage credit is removed.
+The archived institution data and images are preserved for optional future reuse.
+The author authorized publication of this simplification, the logo family,
+English-only display name and eight-person Mentors update on **2026-09-18**.
+See [the refinement release scope and verification](docs/RELEASE_REFINEMENT_2026-09-18.md).
+
+**Previous research-first edition: publication authorized by the author on
 2026-09-18**; this edition is prepared for the existing `master`-based GitHub Pages
 release. See [release scope and verification](docs/RELEASE_2026-09-18.md).
 See [the design, sources, route cleanup and QA](docs/RESEARCHER_EDITION_2026-09-18.md).
@@ -36,25 +42,26 @@ describe the pre-release stages; this authorization supersedes their release hol
 ## Maintain the site
 
 - Introduction: `_pages/about.md`
+- Display name: English-only “Elvis Han Cui” in the shared header and homepage title; Chinese personal-name labels are temporarily removed, while other Chinese content is unchanged.
 - Publications: `_data/papers.yml` (`selected: true` marks the homepage shortlist)
 - Homepage selected-publication order, real first-page thumbnails, venue labels and optional overviews: `_data/featured.yml` (must match selected paper IDs; order is independent of the full bibliography)
 - Selected work: scGTM → The Statistical Compass → Investigating the value of glucodensity. Thumbnail sources and preview limitations: `docs/SELECTED_PUBLICATIONS_2026-09-18.md`
 - Research themes, questions and representative paper links: `_data/research.yml`
-- Education/work-history logo directory: `_data/institutions.yml` and `_includes/institution-links.html`
+- Archived education/work-history logo directory (not rendered): `_data/institutions.yml` and `_includes/institution-links.html`
 - Web CV: `_pages/cv.md`; print this page to save a current PDF
 - Writing page: `_pages/writing.md`
 - Featured essay: `_includes/featured-essay.html` (Writing page)
 - Reading catalogue: `_data/translations.json` (source authors and per-entry access status)
 - Translations page: `_pages/translations.html`; Writing entry module: `_includes/translations-preview.html`
 - Mentor names, sources and recollections: `_data/mentors.yml`
-- Mentors page: `_pages/mentors.html` (accessible from the main navigation)
+- Mentors page: `_pages/mentors.html` (eight name-only disclosure buttons, collapsed by default, with always-visible reference links)
 - Previous extended acknowledgement text (not rendered): `_data/friends.yml`
-- External Links page: `_pages/friends.html` (top navigation and footer; original `/friends/` URL preserved)
-- Homepage styling credit: `_layouts/about.html` (direct acknowledgement and link to Yating Zou)
+- External Links page and single styling-thanks button: `_pages/friends.html` (top navigation and footer; original `/friends/` URL preserved)
+- The homepage no longer repeats the acknowledgement. Button styling: `.acknowledgement-button` in `assets/css/researcher.css`
 - WeChat editorial card and avatar viewport: `_layouts/about.html`, `assets/css/researcher.css`
 - Author-supplied public WeChat profile screenshot: `assets/images/wechat-account-profile.png`; provenance: `docs/WECHAT_CARD_2026-09-18.md`
 - Copy-account-name behavior: `assets/js/scholar.js`; check with `node scripts/check-scholar.cjs`
-- Personal header logo and favicon: `assets/images/elvis-phoenix-logo.png` (latest author-supplied green phoenix/book emblem, unchanged); previous calligraphy logo is retained as an unused asset
+- Current logo selection: `assets/images/elvis-landscape-logo.png` in the header; `assets/images/elvis-seal-logo.png` as favicon. The unchanged bamboo variant is reserved for future article covers, and the phoenix is retained as an alternate. See `docs/LOGO_FAMILY_2026-09-18.md` for provenance; publication is covered by the refinement release above.
 - Personal/institutional image provenance and local-preview limits: `docs/LOGO_DIRECTORY_2026-09-18.md`
 - Navigation: `_data/navigation.yml`
 - Base styling: `assets/css/academic.css`
@@ -75,11 +82,16 @@ The essay **《鞅的辉煌与苦难》** links to the author's supplied WeChat 
 Its full text and images are not mirrored; no publication date or summary has
 been invented.
 
-The **Mentors** page preserves the author's seven-person order, with English
-recollections and Chinese originals. These are personal memories, not a formal
+The **Mentors** page has eight teachers, ordered by Zhejiang University, UCLA,
+then Westlake, with Gang Li after Weng Kee Wong. English recollections and
+Chinese originals are preserved. These are personal memories, not a formal
 advisor roster or third-party quotations. Add author-approved longer pieces to
 each entry's optional `essay_paragraphs` list; longer pieces open in a disclosure.
-The compact view shows one bilingual recollection per person. Keep IDs unchanged so existing
+The default view shows eight name buttons and a separate “Link ↗” beside each.
+Selecting a name reveals its bilingual recollection and academic context.
+Reference links are usable without opening a recollection and have accessible
+labels naming their source. Native details/summary keeps
+the content usable without JavaScript. Keep IDs unchanged so existing
 links continue to work. See [mentor content notes](docs/MENTORS_CONTENT.md).
 
 The homepage includes one compact Writing entry. Expanded translations and
@@ -132,8 +144,8 @@ and rollback instructions, and [QA](docs/QA.md) for the verification record.
 ## Credits
 
 Special thanks to [Yating Zou](https://yatingz205.github.io/) for the styling
-inspiration. The About page carries a single-sentence acknowledgement; the
-External Links page is now only a directory.
+inspiration. The External Links page carries one concise acknowledgement button
+linking directly to her site, without a repeated homepage block.
 
 The homepage publication list takes organizational cues from
 [Arash A. Amini's site](https://faculty.stat.ucla.edu/arashamini/):

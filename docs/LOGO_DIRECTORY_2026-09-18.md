@@ -9,7 +9,10 @@ sentence thanking Yating Zou on About. Make the homepage publication list more
 like the compact scholarly list at https://faculty.stat.ucla.edu/arashamini/.
 Local preview only: no push, deployment or change of access permissions.
 
-## Personal logo — latest selection
+## Personal logo — published phoenix selection
+
+The subsequently confirmed landscape/seal/bamboo family is documented in
+`LOGO_FAMILY_2026-09-18.md`. It is a local follow-up, not yet published.
 
 - Author supplied and selected the green phoenix / open-book emblem on 2026-09-18.
 - Source: `codex-clipboard-b0b336c3-3a2a-4d50-9ece-f2aa7308fe34.png`.

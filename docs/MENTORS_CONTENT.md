@@ -1,5 +1,8 @@
 # Mentor recollections — 2026-09-17
 
+The dated sections below record successive editions. The eight-person update
+and publication authorization at the end supersede the earlier local-only holds.
+
 ## Editorial rules
 
 The seven people, their order, mentorship and remembered lessons come directly
@@ -78,3 +81,56 @@ The caveat is one sentence rather than a large closing section.
 Browser-checked at 1440 × 1000 and 390 × 844: no horizontal overflow; the desktop
 article is about 992 px tall. The site checker still verifies all seven memories
 and reference links. Build, appearance tests and local-link checks pass. No push.
+
+## Name-button edition — 2026-09-18 (local follow-up)
+
+At the author's request, the default view now contains seven name-only buttons,
+in the original order. Native `details` / `summary` disclosures reveal each
+teacher's academic context, unchanged English and Chinese recollections, and
+the existing biographical reference link. All entries start closed; the shared
+`name` groups the disclosures in browsers supporting exclusive details. No
+JavaScript is needed to open or close an entry.
+
+The layout uses two columns on desktop and one below 700px, with 60px / 56px
+minimum trigger heights, visible keyboard focus, plus/minus indicators hidden
+from assistive technologies and reduced-motion-aware hover color changes.
+The extra kicker and verbose introduction are removed. The existing personal-
+memory caveat is retained as one quiet line. Stable IDs and all seven memories
+remain intact; no source data or third-party biographies are rewritten.
+
+Tests require seven named summary controls, closed initial states, preserved
+order/content/references and the unchanged current site navigation. This update
+has not been pushed. Browser interaction and screenshots require a working
+browser connection and are not implied by static checks.
+
+## Eight teachers and direct links — 2026-09-18
+
+The author added **Gang Li (UCLA)** and the memory that he taught survival
+analysis, and explicitly requested arranging the teachers, adding their links
+and pushing the update. Added only this supplied recollection in English and
+Chinese; no course number, date or anecdote is invented.
+
+[Gang Li's UCLA lab website](https://gang-li.ph.ucla.edu/) confirms his identity
+and Biostatistics context. It does not substantiate the personal recollection,
+which comes from the author. All eight existing/new reference destinations were
+checked on 2026-09-18: faculty/lab pages were retrieved for Ye, Li, Wong, Gang Li,
+Dabrowska, Jessica Li and Qian; Fang's existing Zhejiang Online reference was
+retrieved via HTTP and contained her name. Her link remains labeled a public
+reference, not a current faculty profile.
+
+Order follows the author's educational/research journey: Ping Fang, Gaoxiang Ye,
+Haoran Li, Weng Kee Wong, Gang Li, Dorota M. Dabrowska, Jingyi Jessica Li, Hong Qian.
+The original seven retain their relative order. This ordering was stated to the
+author before implementation.
+
+Each closed-by-default name disclosure now has a separate, always-visible
+“Link ↗”. It is a sibling of the disclosure, not an anchor nested in its summary.
+The accessible label identifies the teacher, the source and the new-tab behavior.
+Links include `noopener noreferrer`. Existing anchors and memories are retained.
+
+Jekyll build, 10-page / 282-local-link checks, three-mode appearance and clipboard
+tests pass. Tests require eight controls in the stated order, preserved bilingual
+memories, accessible external links outside the disclosures, and the exact new
+Gang Li record. Browser access timed out again; current screenshots, keyboard
+interaction and responsive visual acceptance remain unverified. Static checks
+do not replace these. Publication is authorized; see the refinement release note.

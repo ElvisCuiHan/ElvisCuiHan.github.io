@@ -85,9 +85,10 @@ errors << 'WeChat copy button or feedback missing' unless wechat&.at_css('button
 errors << 'Wrong avatar' unless homepage.at_css('.profile-photo img')['src'] == '/assets/images/elvis-avatar.png'
 errors << 'Main navigation capitalization differs' unless homepage.css('.nav-links > a').map(&:text) == ['About','Publications','CV','Writing','Mentors','External Links']
 errors << 'Given name emphasis missing' unless homepage.at_css('h1 strong').text == 'Elvis Han'
-errors << 'Author-selected personal logo missing' unless homepage.at_css('.nav-brand img.personal-logo')&.[]('src') == '/assets/images/elvis-phoenix-logo.png'
+errors << 'Homepage display name should be English only' unless homepage.at_css('h1').text == 'Elvis Han Cui' && homepage.css('.chinese-name').empty?
+errors << 'Author-selected landscape/book logo missing' unless homepage.at_css('.nav-brand img.personal-logo')&.[]('src') == '/assets/images/elvis-landscape-logo.png'
 errors << 'Header logo needs a readable name and accessible home link' unless homepage.at_css('.nav-brand')&.[]('aria-label') == 'Elvis Han Cui — About' && homepage.at_css('.brand-wordmark strong')&.text == 'Elvis Han'
-errors << 'Favicon must use the selected personal logo' unless homepage.at_css('link[rel="icon"]')&.[]('href') == '/assets/images/elvis-phoenix-logo.png'
+errors << 'Favicon must use the selected seal variant' unless homepage.at_css('link[rel="icon"]')&.[]('href') == '/assets/images/elvis-seal-logo.png'
 errors << 'Decorative landscape missing' unless homepage.at_css('.scholar-backdrop[aria-hidden="true"]') && File.file?(File.join(root, 'assets/images/ink-landscape-v1.jpg'))
 essay_url = 'https://mp.weixin.qq.com/s/hAIXft_2gpk3P9Mvs0X_RQ'
 writing = Nokogiri::HTML(File.read(File.join(root, 'writing/index.html')))
@@ -101,8 +102,8 @@ errors << 'Obsolete appearance dropdown remains' if homepage.at_css('#visual-sty
 errors << 'Conflicting legacy theme control remains' if homepage.at_css('.theme-toggle') || homepage.at_css('script[src*="academic-theme.js"]')
 mentors = YAML.load_file(File.expand_path('../_data/mentors.yml', __dir__))
 mentor_page = Nokogiri::HTML(File.read(File.join(root, 'mentors/index.html')))
-mentor_ids = %w[ping-fang gaoxiang-ye haoran-li weng-kee-wong dorota-dabrowska jingyi-jessica-li hong-qian]
-errors << 'Mentors must preserve the author-supplied order' unless mentors.map { |m| m['id'] } == mentor_ids
+mentor_ids = %w[ping-fang gaoxiang-ye haoran-li weng-kee-wong gang-li dorota-dabrowska jingyi-jessica-li hong-qian]
+errors << 'Mentors must follow Zhejiang, UCLA, Westlake order with Gang Li after Wong' unless mentors.map { |m| m['id'] } == mentor_ids
 errors << 'Rendered mentors differ from the data' unless mentor_page.css('.mentor-entry').map { |n| n['id'] } == mentor_ids
 errors << 'Homepage should not duplicate Writing, Translations or Mentors' unless homepage.css('.writing-section, .translations-preview, .mentors-preview, .essay-feature').empty?
 errors << 'Independent page navigation must remain available' unless ['/writing/','/mentors/'].all? { |href| homepage.at_css(".nav-links a[href='#{href}']") }
@@ -110,21 +111,32 @@ mentors.each do |mentor|
   entry = mentor_page.at_css("##{mentor['id']}")
   errors << "Missing mentor memory: #{mentor['id']}" unless entry && [mentor['recollection'], mentor['memory_zh']].all? { |t| entry.text.include?(t) }
   errors << "Missing biographical reference: #{mentor['id']}" unless entry && entry.at_css("a[href='#{mentor['source_url']}']")
+  disclosure = entry&.at_xpath('./details[@class="mentor-disclosure"]')
+  errors << "Mentor must be collapsed by default: #{mentor['id']}" unless disclosure && !disclosure.key?('open') && disclosure['name'] == 'mentor-recollections'
+  summary = disclosure&.at_xpath('./summary[@class="mentor-button"]')
+  errors << "Mentor button should show only the name: #{mentor['id']}" unless summary && summary.text == mentor['name'] && summary.css('a,p').empty?
+  errors << "Mentor memories must stay inside the disclosure: #{mentor['id']}" unless disclosure&.at_css('.mentor-memory .mentor-recollection') && disclosure.at_css('.mentor-memory .mentor-memory-zh')
+  source = entry&.at_xpath('./a[@class="mentor-source"]')
+  errors << "Mentor link must be accessible without opening the memory: #{mentor['id']}" unless source && source['href'] == mentor['source_url'] && source.text.strip == 'Link ↗' && source['target'] == '_blank' && source['rel'].split.include?('noopener') && source['aria-label'].include?(mentor['name']) && source['aria-label'].include?('opens in a new tab') && disclosure.css('a.mentor-source').empty?
 end
 errors << 'Personal memories must be distinguished from sourced quotations' unless mentor_page.text.include?('not verbatim quotations')
-friends = YAML.load_file(File.expand_path('../_data/friends.yml', __dir__))
-friends_section = homepage.at_css('#friends')
-errors << 'Missing direct styling acknowledgement' unless friends_section && friends_section['class'] == 'styling-credit' && friends_section.text.include?('for the styling of this website') && friends_section.at_css('a[href="https://yatingz205.github.io/"]')
-errors << 'Homepage credit should not remain a Friends promo block' if friends_section && (friends_section.at_css('h2') || friends_section.at_css('a[href="/friends/"]'))
-errors << 'Mentors page must keep the compact presentation' unless mentor_page.at_css('.mentors-page--compact') && mentor_page.css('.mentor-index,.mentor-deck,.mentor-theme,.mentor-memory h3').empty?
+errors << 'Homepage must not duplicate the External Links acknowledgement' unless homepage.css('.styling-credit,.friends-section,a[href="https://yatingz205.github.io/"]').empty?
+errors << 'Mentors page must show eight name buttons without extra headings' unless mentor_page.at_css('.mentors-page--buttons') && mentor_page.css('.mentor-buttons > .mentor-entry > details > summary.mentor-button').size == 8 && mentor_page.css('.mentor-index,.mentor-deck,.mentor-theme,.mentor-memory h3,.mentor-heading .section-kicker').empty?
+gang_li = mentors.find { |mentor| mentor['id'] == 'gang-li' }
+errors << 'Gang Li must retain the author-supplied survival-analysis recollection and verified UCLA link' unless gang_li && gang_li['recollection'] == 'Professor Li taught me survival analysis.' && gang_li['source_url'] == 'https://gang-li.ph.ucla.edu/'
 friends_page = Nokogiri::HTML(File.read(File.join(root, 'friends/index.html')))
 errors << 'Deferred friend must not be published' if friends_page.at_css('#friend-tao-wang') || friends_page.at_css('a[href="https://wangtao-phy.github.io/"]')
 errors << 'Friends navigation must be active on its page' unless friends_page.at_css('.nav-links a.active[aria-current="page"][href="/friends/"]')
 errors << 'External Links page must use its new title' unless friends_page.at_css('h1').text == 'External Links' && friends_page.at_css('title').text.start_with?('External Links')
-errors << 'External Links must stay a simple directory' unless friends_page.at_css('.external-links-page') && friends_page.css('.friends-deck,.friend-entry,.friend-gratitude,.friends-colophon').empty?
+external_links = friends_page.css('.external-links-page a')
+errors << 'External Links must contain only the Yating Zou acknowledgement button' unless external_links.size == 1 && external_links.first['class'] == 'acknowledgement-button' && external_links.first['href'] == 'https://yatingz205.github.io/' && external_links.first.text.include?('Yating Zou') && external_links.first.text.include?('For the website styling')
+credit = friends_page.at_css('.acknowledgement-button')
+errors << 'Acknowledgement must be an accessible native link with a new-tab notice' unless credit && credit['target'] == '_blank' && credit['rel'].split.include?('noopener') && credit['aria-label'].include?('opens in a new tab')
+errors << 'External Links must stay uncluttered' unless friends_page.at_css('.external-links-page') && friends_page.css('.friends-deck,.friend-entry,.friend-gratitude,.friends-colophon,.external-links-intro,.external-links-back').empty?
 routes.each do |route|
   page = Nokogiri::HTML(File.read(File.join(root, route)))
   errors << "Missing footer External Links label: #{route}" unless page.at_css('.archive-links a[href="/friends/"]')&.text == 'External Links'
+  errors << "Header display name should be English only: #{route}" unless page.at_css('.brand-wordmark')&.text == 'Elvis Han Cui' && page.css('.brand-chinese').empty?
 end
 translations = JSON.parse(File.read(File.expand_path('../_data/translations.json', __dir__)))['entries']
 translation_page = Nokogiri::HTML(File.read(File.join(root, 'translations/index.html')))
@@ -180,16 +192,8 @@ errors << 'Source PDFs must remain outside the generated site' if File.exist?(Fi
 errors << 'Missing research question' unless homepage.at_css('#question-title')
 errors << 'Writing entry missing' unless homepage.at_css('.research-notes a[href="/writing/"]')
 errors << 'FCS must be described as ongoing work, not an invented publication' unless pubs.at_css('#stochastic-dynamics .theme-status').text.include?('ongoing research')
-institutions = YAML.load_file(File.expand_path('../_data/institutions.yml', __dir__))
-errors << 'Institution buttons must preserve the seven requested destinations' unless institutions.size == 7 && friends_page.css('.institution-logo-grid a').map { |n| n['href'] } == institutions.map { |i| i['url'] }
-errors << 'Institutions must move off the homepage' unless homepage.css('.institution-section,.institution-directory,.institution-links,.institution-logo-grid').empty?
-errors << 'Institution context must not imply endorsement' unless friends_page.at_css('.institution-note').text.include?('not institutional partnerships or endorsements')
-errors << 'Seven institution logos expected; no text placeholder' unless friends_page.css('.institution-mark img').size == 7 && friends_page.css('.institution-text-mark').empty?
-errors << 'Huadong official logo missing' unless friends_page.at_css('a[href="https://www.eastchinapharm.com/"] img')&.[]('src') == '/assets/images/institutions/huadong.svg'
-errors << 'White Huadong mark requires a dark circular surface' unless friends_page.at_css('a[href="https://www.eastchinapharm.com/"] .institution-mark--navy')
-errors << 'Kuntuo must use its own logo and official destination' unless friends_page.at_css('a[href="https://www.kuntuo-cro.com/"] img')&.[]('src') == '/assets/images/institutions/kuntuo.png' && friends_page.css('.institution-logo-grid img[src$="/iqvia.svg"]').empty?
-friends_page.css('.institution-logo-grid a').each do |link|
-  errors << 'External circle link must safely open in a new tab' unless link['target'] == '_blank' && link['rel'].to_s.split.include?('noopener') && link['aria-label'].include?('opens in a new tab')
+[homepage, friends_page].each do |page|
+  errors << 'Institution directory must no longer be rendered' unless page.css('.institution-section,.institution-directory,.institution-links,.institution-logo-grid,.institution-mark,.institution-note').empty?
 end
 errors << 'Empty archives must not be promoted' unless homepage.css('a[href="/talks/"],a[href="/year-archive/"]').empty?
 
@@ -228,4 +232,4 @@ Dir.glob(File.join(root, '**/*.html')).each do |path|
 end
 abort errors.uniq.join("\n") unless errors.empty?
 puts "Site checks passed: #{routes.size} pages, #{count} local links/assets, headings, anchors, bibliography, and affiliation."
-puts "Research edition checks passed: three themes, seven institutions, #{aliases.size} legacy aliases, no stale identity or template artifacts."
+puts "Research edition checks passed: three themes, one external acknowledgement, #{aliases.size} legacy aliases, no stale identity or template artifacts."

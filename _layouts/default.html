@@ -12,7 +12,7 @@
     <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
     <meta property="og:image" content="{{ '/assets/images/elvis-avatar.png' | absolute_url }}">
     <meta name="color-scheme" content="light dark">
-    <link rel="icon" href="{{ '/assets/images/elvis-phoenix-logo.png' | relative_url }}" type="image/png">
+    <link rel="icon" href="{{ '/assets/images/elvis-seal-logo.png' | relative_url }}" type="image/png">
     <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}" title="{{ site.title | escape }}">
     <script src="{{ '/assets/js/academic-style.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
     <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
@@ -25,7 +25,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="site-nav" aria-label="Main navigation">
-        <a class="nav-name nav-brand" href="{{ '/' | relative_url }}" aria-label="Elvis Han Cui — About"><img class="personal-logo" src="{{ '/assets/images/elvis-phoenix-logo.png' | relative_url }}" alt="" width="1254" height="1254"><span class="brand-wordmark"><span><strong>Elvis Han</strong> Cui</span><span class="brand-chinese" lang="zh-CN">崔涵</span></span></a>
+        <a class="nav-name nav-brand" href="{{ '/' | relative_url }}" aria-label="Elvis Han Cui — About"><img class="personal-logo" src="{{ '/assets/images/elvis-landscape-logo.png' | relative_url }}" alt="" width="1254" height="1254"><span class="brand-wordmark"><span><strong>Elvis Han</strong> Cui</span></span></a>
         <div class="nav-links">
           {% for item in site.data.navigation.main %}
           <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active" aria-current="page"{% elsif page.nav_parent == item.url %} class="active"{% endif %}>{{ item.title }}</a>

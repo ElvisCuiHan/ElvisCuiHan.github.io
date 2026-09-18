@@ -1,4 +1,5 @@
-# Order and recollections supplied by Elvis Han Cui, 2026-09-17.
+# Recollections supplied by Elvis Han Cui, 2026-09-17 and 2026-09-18.
+# Ordered by Zhejiang University, UCLA, then Westlake; Gang Li follows Wong.
 # These are personal memories, not independently sourced quotations.
 # Keep stable IDs for deep links. Optional `essay_paragraphs` can hold later
 # author-approved English paragraphs; do not invent anecdotes to fill the page.
@@ -50,6 +51,17 @@
   memory_zh: Weng Kee Wong 老师教我，任何事情沉下来做，总会喜欢上。
   source_url: https://ph.ucla.edu/about/faculty-staff-directory/weng-kee-wong
   source_label: University profile
+
+- id: gang-li
+  name: Gang Li
+  institution: UCLA
+  field: Biostatistics
+  theme: Survival analysis
+  lesson: Learning survival analysis.
+  recollection: Professor Li taught me survival analysis.
+  memory_zh: Gang Li 老师教我生存分析。
+  source_url: https://gang-li.ph.ucla.edu/
+  source_label: UCLA lab website
 
 - id: dorota-dabrowska
   name: Dorota M. Dabrowska
