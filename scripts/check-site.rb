@@ -10,7 +10,10 @@ require 'date'
 root = File.expand_path(ARGV.fetch(0, '_site'))
 routes = ['index.html', 'publications/index.html', 'cv/index.html',
           'writing/index.html', 'mentors/index.html', 'friends/index.html', 'translations/index.html',
-          'teaching/index.html', 'sitemap/index.html', '404.html']
+          'teaching/index.html', 'sitemap/index.html', '404.html',
+          'translations/ai-drug-discovery/index.html',
+          'translations/tnik-discovery/index.html',
+          'translations/rentosertib-trial/index.html']
 errors = []
 count = 0
 routes.each do |route|
@@ -120,10 +123,14 @@ mentors.each do |mentor|
   errors << "Mentor link must be accessible without opening the memory: #{mentor['id']}" unless source && source['href'] == mentor['source_url'] && source.text.strip == 'Link ↗' && source['target'] == '_blank' && source['rel'].split.include?('noopener') && source['aria-label'].include?(mentor['name']) && source['aria-label'].include?('opens in a new tab') && disclosure.css('a.mentor-source').empty?
 end
 errors << 'Personal memories must be distinguished from sourced quotations' unless mentor_page.text.include?('not verbatim quotations')
-errors << 'Homepage must not duplicate the External Links acknowledgement' unless homepage.css('.styling-credit,.friends-section,a[href="https://yatingz205.github.io/"]').empty?
+home_credit = homepage.at_css('.about-page > .home-styling-credit')
+errors << 'Homepage must have one small styling credit before its heading' unless home_credit && home_credit.text == 'With thanks to Yating Zou for the styling.' && home_credit.at_css('a[href="https://yatingz205.github.io/"]')&.text == 'Yating Zou' && homepage.at_css('.about-page').element_children.first == home_credit
+errors << 'Homepage must not restore the large acknowledgement block' unless homepage.css('.styling-credit,.friends-section,.acknowledgement-button').empty? && homepage.css('a[href="https://yatingz205.github.io/"]').size == 1
 errors << 'Mentors page must show eight name buttons without extra headings' unless mentor_page.at_css('.mentors-page--buttons') && mentor_page.css('.mentor-buttons > .mentor-entry > details > summary.mentor-button').size == 8 && mentor_page.css('.mentor-index,.mentor-deck,.mentor-theme,.mentor-memory h3,.mentor-heading .section-kicker').empty?
 gang_li = mentors.find { |mentor| mentor['id'] == 'gang-li' }
 errors << 'Gang Li must retain the author-supplied survival-analysis recollection and verified UCLA link' unless gang_li && gang_li['recollection'] == 'Professor Li taught me survival analysis.' && gang_li['source_url'] == 'https://gang-li.ph.ucla.edu/'
+jessica_li = mentors.find { |mentor| mentor['id'] == 'jingyi-jessica-li' }
+errors << 'Jessica Li must link to the JSB lab website' unless jessica_li && jessica_li['source_url'] == 'http://jsb.ucla.edu/' && jessica_li['source_label'] == 'JSB lab website'
 friends_page = Nokogiri::HTML(File.read(File.join(root, 'friends/index.html')))
 errors << 'Deferred friend must not be published' if friends_page.at_css('#friend-tao-wang') || friends_page.at_css('a[href="https://wangtao-phy.github.io/"]')
 errors << 'Friends navigation must be active on its page' unless friends_page.at_css('.nav-links a.active[aria-current="page"][href="/friends/"]')
@@ -142,10 +149,11 @@ translations = JSON.parse(File.read(File.expand_path('../_data/translations.json
 translation_page = Nokogiri::HTML(File.read(File.join(root, 'translations/index.html')))
 translation_ids = translations.map { |book| book['id'] }
 errors << 'Translation IDs must be unique' unless translation_ids.uniq.size == translation_ids.size
-errors << 'Translation catalogue must render all 11 reviewed entries' unless translation_ids.size == 11 && translation_page.css('.translation-entry').map { |node| node['id'] }.sort == translation_ids.sort
+errors << 'Translation catalogue must render all 14 reviewed entries' unless translation_ids.size == 14 && translation_page.css('.translation-entry').map { |node| node['id'] }.sort == translation_ids.sort
 translations.each do |book|
   entry = translation_page.at_css("##{book['id']}")
   errors << "Missing translation attribution: #{book['id']}" unless entry && entry.text.include?(book['originalAuthors']) && entry.at_css("a[href='#{book['originalUrl']}']")
+  errors << "Missing catalogue action button: #{book['id']}" unless entry && entry.at_css('a.reading-button')
   errors << "Restricted translation has a download: #{book['id']}" if book['status'] != 'hosted-translation' && (book['pdf'] || entry.at_css('.translation-pdf'))
 end
 pdf_path = '/files/translations/advani-saxe-sompolinsky-2020-zh.pdf'
@@ -154,8 +162,34 @@ errors << 'Reviewed translation PDF differs from source' unless Digest::SHA256.f
 errors << 'Missing translation license or AI disclosure' unless translation_page.at_css('a[href="https://creativecommons.org/licenses/by/4.0/"]') && translation_page.text.include?('Codex-assisted')
 errors << 'Translation page should keep Writing highlighted' unless translation_page.at_css('.nav-links a.active[href="/writing/"]')
 [writing].each do |page|
-  errors << 'Missing translation shelf entry points' unless page.css('.reading-preview-item').map { |node| node['href'] } == ['/translations/#wasserstein-2023', '/translations/#advani-2020']
+  errors << 'Missing translation shelf entry points' unless page.css('.reading-preview-item').map { |node| node['href'] } == ['/translations/#wasserstein-2023', '/translations/#advani-2020', '/translations/#bender-ai-drug-discovery-2026']
 end
+ai_readings = translations.select { |book| book['topicEn'] == 'AI & drug discovery' }
+errors << 'AI reading shelf must contain the three source-checked papers' unless ai_readings.map { |book| book['id'] } == %w[bender-ai-drug-discovery-2026 ren-tnik-2024 xu-rentosertib-2025]
+ai_readings.each do |book|
+  reading_file = File.join(root, book['readingUrl'].delete_prefix('/'), 'index.html')
+  page = Nokogiri::HTML(File.read(reading_file))
+  article = page.at_css('.reading-essay[lang="zh-CN"]')
+  errors << "Missing Chinese reading body: #{book['id']}" unless article && article['data-reading-id'] == book['id'] && article.css('.reading-prose h2').size >= 3
+  errors << "Missing reading scope: #{book['id']}" unless article && article.at_css('.reading-edition-label')&.text == book['coverageZh'] && article.text.include?('非全文翻译')
+  errors << "Missing reading attribution: #{book['id']}" unless article && article.text.include?(book['originalAuthors']) && article.at_css("a[href='#{book['originalUrl']}']")
+  errors << "Missing draft disclosure: #{book['id']}" unless article && article.at_css('.reading-disclosure')&.text&.include?('待 Elvis Han Cui 审阅')
+  errors << "Official PDF must be external: #{book['id']}" unless article && article.at_css(".reading-source-links a[href='#{book['originalPdfUrl']}']") && book['originalPdfUrl'].start_with?('https://www.nature.com/')
+  errors << "Missing primary reading button: #{book['id']}" unless article && article.css('.reading-source-links a.reading-button--primary[href="#reading-body"]').size == 1 && article.at_css('#reading-body[tabindex="-1"]')
+  errors << "All reading actions must use native links: #{book['id']}" unless article && article.css('.reading-source-links a').all? { |link| link['class'].to_s.split.include?('reading-button') } && article.css('.reading-source-links button,[onclick]').empty?
+  source_details = article&.at_css('details.reading-source')
+  errors << "Source details must be collapsible and closed by default: #{book['id']}" unless source_details && !source_details.key?('open') && source_details.at_css('summary')
+  expected_related = ai_readings.reject { |item| item['id'] == book['id'] }.map { |item| item['readingUrl'] }
+  errors << "Missing related-reading cards: #{book['id']}" unless article && article.css('a.reading-related-link').map { |link| link['href'] } == expected_related
+  errors << "Reading entry not reachable from catalogue: #{book['id']}" unless translation_page.at_css("a.translation-reading[href='#{book['readingUrl']}']")
+  errors << "Reading page should keep Writing highlighted: #{book['id']}" unless page.at_css('.nav-links a.active[href="/writing/"]')
+  errors << "Private source path leaked: #{book['id']}" if page.to_html.include?('/Users/') || page.to_html.include?('tmp/pdfs/')
+end
+ren_page = Nokogiri::HTML(File.read(File.join(root, 'translations/tnik-discovery/index.html')))
+errors << 'Ren translation needs scope, source license and change record' unless ['摘要中译', 'Discussion 末段中译', '18 个月', '78 名健康参与者', '新增译注亦按'].all? { |text| ren_page.text.include?(text) } && ren_page.at_css('a[href="https://creativecommons.org/licenses/by/4.0/"]')
+xu_page = Nokogiri::HTML(File.read(File.join(root, 'translations/rentosertib-trial/index.html')))
+errors << 'Xu guide must preserve ND boundary and primary/secondary endpoints' unless xu_page.at_css('a[href="https://creativecommons.org/licenses/by-nc-nd/4.0/"]') && ['71 名', '主要终点', '次要终点', '不发布全文或完整摘要中译'].all? { |text| xu_page.text.include?(text) }
+errors << 'Raw AI drug-discovery source PDFs must not be built into the website' if File.exist?(File.join(root, 'tmp/pdfs/aidd-review'))
 research = YAML.load_file(File.expand_path('../_data/research.yml', __dir__))
 theme_ids = research.map { |theme| theme['id'] }
 errors << 'Three distinct research themes are required' unless theme_ids.size == 3 && theme_ids.uniq.size == 3
@@ -191,6 +225,8 @@ errors << 'Compass must retain its working-manuscript status' unless homepage.at
 errors << 'Source PDFs must remain outside the generated site' if File.exist?(File.join(root, 'tmp/pdfs/selected-publications')) || Dir.glob(File.join(root, 'assets/images/publications/*.pdf')).any?
 errors << 'Missing research question' unless homepage.at_css('#question-title')
 errors << 'Writing entry missing' unless homepage.at_css('.research-notes a[href="/writing/"]')
+notes = homepage.at_css('.research-notes')
+errors << 'Homepage Writing entry must remain a compact heading and single essay link' unless notes && notes.at_css('h2#notes-title')&.text == 'Writing' && notes.css('a').size == 1 && notes.at_css('.note-title[lang="zh-CN"]')&.text == '鞅的辉煌与苦难' && notes.css('p,.section-kicker,.note-language,.note-cta').empty? && notes.element_children.size == 2
 errors << 'FCS must be described as ongoing work, not an invented publication' unless pubs.at_css('#stochastic-dynamics .theme-status').text.include?('ongoing research')
 [homepage, friends_page].each do |page|
   errors << 'Institution directory must no longer be rendered' unless page.css('.institution-section,.institution-directory,.institution-links,.institution-logo-grid,.institution-mark,.institution-note').empty?

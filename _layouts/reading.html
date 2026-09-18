@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% assign reading = site.data.translations.entries | where: 'id', page.reading_id | first %}
+<article class="reading-essay" lang="zh-CN" data-reading-id="{{ reading.id }}">
+  <header class="reading-essay-header">
+    <p class="section-kicker" lang="en"><a href="{{ '/translations/' | relative_url }}#ai-drug-discovery">Translations &amp; Notes</a> / AI &amp; Drug Discovery</p>
+    <p class="reading-edition-label">{{ reading.coverageZh }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="reading-subtitle">{{ page.subtitle }}</p>
+    <nav class="reading-source-links" aria-label="阅读与原文入口">
+      <a class="reading-button reading-button--primary" href="#reading-body">阅读中文{% if reading.status == 'excerpt-translation' %}译注{% else %}导读{% endif %}<span aria-hidden="true">↓</span></a>
+      <a class="reading-button" href="{{ reading.originalPdfUrl }}">原文 PDF<span aria-hidden="true">↗</span></a>
+      <a class="reading-button" href="{{ reading.originalUrl }}">DOI / 原文<span aria-hidden="true">↗</span></a>
+      {% if reading.alternateUrl %}<a class="reading-button" href="{{ reading.alternateUrl }}">免费阅读原文<span aria-hidden="true">↗</span></a>{% endif %}
+    </nav>
+    <details class="reading-source">
+      <summary>原作与版本信息<span aria-hidden="true">+</span></summary>
+      <p lang="en"><a href="{{ reading.originalUrl }}">{{ reading.title }}</a></p>
+      <p lang="en">{{ reading.originalAuthors }}<br>{{ reading.venue }}</p>
+    </details>
+    <p class="reading-disclosure">AI 辅助{% if reading.status == 'excerpt-translation' %}翻译与注释{% else %}整理{% endif %} · 2026-09-18 · 待 Elvis Han Cui 审阅。非官方阅读稿，不代表原作者或出版方认可；本页不构成医疗建议。</p>
+  </header>
+  <div class="reading-prose" id="reading-body" tabindex="-1">{{ content }}</div>
+  <footer class="reading-essay-footer">
+    <h2>继续阅读</h2>
+    <ul>
+      {% assign related = site.data.translations.entries | where: 'topicEn', 'AI & drug discovery' %}
+      {% for item in related %}{% unless item.id == reading.id %}<li><a class="reading-related-link" href="{{ item.readingUrl | relative_url }}"><span>{{ item.titleZh }}<small>{{ item.coverageZh }}</small></span><span class="reading-related-arrow" aria-hidden="true">→</span></a></li>{% endunless %}{% endfor %}
+    </ul>
+    <a class="reading-button" href="{{ '/translations/' | relative_url }}#ai-drug-discovery"><span aria-hidden="true">←</span>返回阅读专题</a>
+  </footer>
+</article>

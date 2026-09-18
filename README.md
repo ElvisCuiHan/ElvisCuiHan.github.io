@@ -9,7 +9,11 @@ the original ink landscape, illustrated avatar and independent pages remain.
 The publications page introduces the same research threads before the complete
 28-record bibliography. In the latest local refinement, **External Links** contains
 only one “Thanks, Yating Zou” button for the website styling. The institutional
-directory is no longer rendered, and the repeated homepage credit is removed.
+directory is no longer rendered. A later refinement adds a small
+Yating Zou styling credit beneath the homepage navigation and reduces the
+Writing preview to a heading and one essay link. The author authorized publishing
+these changes, Jessica Li's JSB link and the new reading pages/buttons on
+**2026-09-18**. See [reading release checks](docs/RELEASE_READING_BUTTONS_2026-09-18.md).
 The archived institution data and images are preserved for optional future reuse.
 The author authorized publication of this simplification, the logo family,
 English-only display name and eight-person Mentors update on **2026-09-18**.
@@ -53,11 +57,13 @@ describe the pre-release stages; this authorization supersedes their release hol
 - Featured essay: `_includes/featured-essay.html` (Writing page)
 - Reading catalogue: `_data/translations.json` (source authors and per-entry access status)
 - Translations page: `_pages/translations.html`; Writing entry module: `_includes/translations-preview.html`
+- Online reading pages: `_pages/reading-*.md`; shared layout: `_layouts/reading.html`. Native link-buttons distinguish Chinese reading, original PDF and DOI. Source metadata uses a keyboard-accessible disclosure.
 - Mentor names, sources and recollections: `_data/mentors.yml`
 - Mentors page: `_pages/mentors.html` (eight name-only disclosure buttons, collapsed by default, with always-visible reference links)
 - Previous extended acknowledgement text (not rendered): `_data/friends.yml`
 - External Links page and single styling-thanks button: `_pages/friends.html` (top navigation and footer; original `/friends/` URL preserved)
-- The homepage no longer repeats the acknowledgement. Button styling: `.acknowledgement-button` in `assets/css/researcher.css`
+- Small homepage styling credit (under navigation, right-aligned): `.home-styling-credit` in `_layouts/about.html` and `assets/css/researcher.css`; the larger External Links button remains independent.
+- Compact homepage Writing row: `.research-notes` in the same layout and stylesheet. The original essay and translations remain on the Writing page.
 - WeChat editorial card and avatar viewport: `_layouts/about.html`, `assets/css/researcher.css`
 - Author-supplied public WeChat profile screenshot: `assets/images/wechat-account-profile.png`; provenance: `docs/WECHAT_CARD_2026-09-18.md`
 - Copy-account-name behavior: `assets/js/scholar.js`; check with `node scripts/check-scholar.cjs`
@@ -99,10 +105,16 @@ mentor recollections remain on their independent pages. Empty Talks and Blog
 archives redirect to Writing; they are no longer promoted in navigation.
 Past Teaching entries remain clearly labeled as historical appointments.
 
-**Translations & Notes** is linked from Writing. It contains eleven
+**Translations & Notes** is linked from Writing. It contains fourteen
 unofficial Chinese reading projects, led by *Wasserstein Regression*. The
-Advani–Saxe–Sompolinsky edition has a CC BY 4.0 Chinese PDF; the other ten entries
-provide metadata and original-source links only. Do not copy restricted PDFs
+Advani–Saxe–Sompolinsky edition has a CC BY 4.0 Chinese PDF; ten entries
+provide metadata and original-source links only. Three new online Chinese
+readings cover AI drug discovery: the Bender perspective, Ren's TNIK discovery
+study, and Xu's phase 2a trial. Only Ren's abstract and final Discussion paragraph
+are translated (CC BY 4.0); the other two are short original reading guides,
+not translations. The new AI-assisted drafts are marked as awaiting Elvis's
+review. See [source and rights checks](docs/AI_DRUG_DISCOVERY_READINGS.md).
+Do not copy restricted PDFs
 into the site when adding a catalogue entry. See [translation source and access
 notes](docs/TRANSLATIONS_CONTENT.md), including version hashes and attribution.
 
@@ -145,7 +157,8 @@ and rollback instructions, and [QA](docs/QA.md) for the verification record.
 
 Special thanks to [Yating Zou](https://yatingz205.github.io/) for the styling
 inspiration. The External Links page carries one concise acknowledgement button
-linking directly to her site, without a repeated homepage block.
+linking directly to her site. At the author's request, the homepage also has a
+small, right-aligned text credit, rather than a repeated acknowledgement block.
 
 The homepage publication list takes organizational cues from
 [Arash A. Amini's site](https://faculty.stat.ucla.edu/arashamini/):

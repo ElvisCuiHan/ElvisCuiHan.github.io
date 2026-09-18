@@ -4,13 +4,13 @@
     <{{ translation_heading }} class="translations-preview-title" id="translations-preview-title"><a href="{{ '/translations/' | relative_url }}">Translations &amp; Notes</a></{{ translation_heading }}>
     <span lang="zh-CN">译以明理 · 注以致知</span>
   </div>
-  <p class="translations-preview-intro">A growing collection of Chinese reading editions, from statistical learning to the life of mathematics.</p>
+  <p class="translations-preview-intro">Chinese translations and reading guides on statistics, mathematics and AI in drug discovery.</p>
   <div class="reading-preview-list">
     {% assign featured_translations = site.data.translations.entries | where: 'featured', true | sort: 'previewOrder' %}
     {% for book in featured_translations %}
     <a class="reading-preview-item" href="{{ '/translations/' | relative_url }}#{{ book.id }}">
       <span class="reading-preview-marker" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
-      <span class="reading-preview-body"><span class="reading-preview-title">{{ book.shortTitle }}</span><span class="reading-preview-zh" lang="zh-CN">{{ book.titleZh }}</span><span class="reading-preview-note">{{ book.previewNote }}</span></span>
+      <span class="reading-preview-body"><span class="reading-preview-title">{{ book.shortTitle }}</span><span class="reading-preview-zh" lang="zh-CN">{{ book.titleZh }}</span><span class="reading-preview-note">{{ book.previewNote }}</span><span class="reading-preview-cta">Explore reading <span aria-hidden="true">→</span></span></span>
       <span class="reading-preview-arrow" aria-hidden="true">↗</span>
     </a>
     {% endfor %}

@@ -134,3 +134,13 @@ memories, accessible external links outside the disclosures, and the exact new
 Gang Li record. Browser access timed out again; current screenshots, keyboard
 interaction and responsive visual acceptance remain unverified. Static checks
 do not replace these. Publication is authorized; see the refinement release note.
+
+## JSB link — local follow-up, 2026-09-18
+
+At the author's request, Jessica Li's displayed reference now leads to
+[JSB — Junction of Statistics and Biology](http://jsb.ucla.edu/) instead of her
+Fielding faculty profile. Her identity, recollection and position are unchanged.
+The UCLA Bioscience profile lists JSB as her lab website. HTTP returned the JSB
+homepage title; HTTPS could not be reached during this check, so the working HTTP
+address is used. Publication of this pending change was subsequently authorized
+with the reading-buttons release; see RELEASE_READING_BUTTONS_2026-09-18.md.

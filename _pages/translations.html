@@ -30,7 +30,7 @@ excerpt: "Chinese translations and annotated reading editions collected by Elvis
       <p class="translation-source">{{ lead.venue }} ({{ lead.year }})</p>
       <p class="translation-description">{{ lead.pages }} pages of Chinese translation with chapter guides, a terminology table and notes on statistical history.</p>
       <p class="translation-status">Internal study edition <span aria-hidden="true">·</span> Catalogue only</p>
-      <div class="translation-links"><a href="{{ lead.originalUrl }}">Original article <span aria-hidden="true">↗</span></a><a href="{{ lead.alternateUrl }}">Authors’ preprint <span aria-hidden="true">↗</span></a></div>
+      <div class="translation-links"><a class="reading-button" href="{{ lead.originalUrl }}">Original article <span aria-hidden="true">↗</span></a><a class="reading-button" href="{{ lead.alternateUrl }}">Authors’ preprint <span aria-hidden="true">↗</span></a></div>
       <p class="translation-rights">The source edition is marked for internal study and is not authorized by the original authors or journal. The translated PDF is not offered for download here.</p>
     </div>
   </section>
@@ -39,12 +39,13 @@ excerpt: "Chinese translations and annotated reading editions collected by Elvis
     <a href="#statistics-learning"><span aria-hidden="true">01</span> Statistics &amp; Learning</a>
     <a href="#mathematics-science"><span aria-hidden="true">02</span> Mathematics &amp; Science</a>
     <a href="#life-physics"><span aria-hidden="true">03</span> Life &amp; Physics</a>
+    <a href="#ai-drug-discovery"><span aria-hidden="true">04</span> AI &amp; Drug Discovery</a>
   </nav>
-  {% assign topics = 'Statistics & learning|Mathematics & science|Life & physics' | split: '|' %}
-  {% assign topic_ids = 'statistics-learning|mathematics-science|life-physics' | split: '|' %}
+  {% assign topics = 'Statistics & learning|Mathematics & science|Life & physics|AI & drug discovery' | split: '|' %}
+  {% assign topic_ids = 'statistics-learning|mathematics-science|life-physics|ai-drug-discovery' | split: '|' %}
   {% for topic in topics %}
   <section class="translation-group" id="{{ topic_ids[forloop.index0] }}" aria-labelledby="{{ topic_ids[forloop.index0] }}-title">
-    <header class="translation-group-heading"><p class="section-kicker">{{ forloop.index | prepend: '0' }} / READING SHELF</p><h2 id="{{ topic_ids[forloop.index0] }}-title">{{ topic | replace: '& learning', '& Learning' | replace: '& science', '& Science' | replace: '& physics', '& Physics' }}</h2></header>
+    <header class="translation-group-heading"><p class="section-kicker">{{ forloop.index | prepend: '0' }} / READING SHELF</p><h2 id="{{ topic_ids[forloop.index0] }}-title">{{ topic | replace: '& learning', '& Learning' | replace: '& science', '& Science' | replace: '& physics', '& Physics' | replace: '& drug discovery', '& Drug Discovery' }}</h2></header>
     {% assign books = site.data.translations.entries | where: 'topicEn', topic %}
     {% for book in books %}{% unless book.id == lead.id %}
     <article class="translation-entry reading-record" id="{{ book.id }}">
@@ -53,12 +54,14 @@ excerpt: "Chinese translations and annotated reading editions collected by Elvis
         <h3 lang="zh-CN">{{ book.titleZh }}</h3>
         <p class="reading-original-title">{{ book.title }}</p>
         <p class="reading-original-authors">Original authors: {{ book.originalAuthors }}</p>
-        <p class="translation-status">{% if book.status == 'hosted-translation' %}Chinese PDF available <span aria-hidden="true">·</span> {{ book.pages }} pages{% else %}Catalogue only <span aria-hidden="true">·</span> Rights review{% endif %}</p>
+        <p class="translation-status">{% if book.status == 'hosted-translation' %}Chinese PDF available <span aria-hidden="true">·</span> {{ book.pages }} pages{% elsif book.status == 'excerpt-translation' %}Read online <span aria-hidden="true">·</span> Chinese excerpt translation{% elsif book.status == 'reading-guide' %}Read online <span aria-hidden="true">·</span> Chinese guide, not a translation{% else %}Catalogue only <span aria-hidden="true">·</span> Rights review{% endif %}</p>
         <p class="translation-rights">{{ book.noteEn }}</p>
         <div class="translation-links">
-          {% if book.pdf %}<a href="{{ book.pdf | relative_url }}" class="translation-pdf">Read Chinese PDF <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>{% endif %}
-          <a href="{{ book.originalUrl }}">{% if book.id == 'golden-age-2026' %}Original report{% else %}Original source{% endif %} <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>
-          {% if book.license %}<a href="https://creativecommons.org/licenses/by/4.0/">{{ book.license }} <span aria-hidden="true">↗</span></a>{% endif %}
+          {% if book.readingUrl %}<a href="{{ book.readingUrl | relative_url }}" class="translation-reading reading-button reading-button--primary" lang="zh-CN">阅读{% if book.status == 'excerpt-translation' %}中文译注{% else %}中文导读{% endif %} <span aria-hidden="true">→</span><span class="sr-only"> — {{ book.titleZh }}</span></a>{% endif %}
+          {% if book.pdf %}<a href="{{ book.pdf | relative_url }}" class="translation-pdf reading-button reading-button--primary">Read Chinese PDF <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>{% endif %}
+          {% if book.originalPdfUrl %}<a class="reading-button" href="{{ book.originalPdfUrl }}">Original PDF <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>{% endif %}
+          <a class="reading-button" href="{{ book.originalUrl }}">{% if book.id == 'golden-age-2026' %}Original report{% else %}Original source{% endif %} <span aria-hidden="true">↗</span><span class="sr-only"> — {{ book.title }}</span></a>
+          {% if book.license %}<a href="{{ book.licenseUrl | default: 'https://creativecommons.org/licenses/by/4.0/' }}">{{ book.license }} <span aria-hidden="true">↗</span></a>{% endif %}
         </div>
         {% if book.id == 'advani-2020' %}<details class="translation-attribution"><summary>Edition, attribution &amp; changes</summary><p>Original: Madhu S. Advani, Andrew M. Saxe and Haim Sompolinsky (2020), <em>Neural Networks</em> 132, 428–446. © 2020 The Authors. <a href="{{ book.licenseEvidence }}">Original open-access record</a>.</p><p>This unofficial edition, dated September 7, 2026, adds a Chinese translation, annotations, reading guides, a glossary and a cover illustration. The edition credits Codex-assisted translation, LaTeX typesetting and checking. Its new translation and layout are also offered under CC BY 4.0. No endorsement by the original authors or publisher is implied.</p></details>{% endif %}
       </div>
@@ -68,7 +71,7 @@ excerpt: "Chinese translations and annotated reading editions collected by Elvis
   {% endfor %}
   <footer class="translation-colophon">
     <p lang="zh-CN">读有所思，译有所注。</p>
-    <p>A reading collection, not a list of original research publications. Original authorship is retained throughout. These are unofficial translations; AI assistance is disclosed in the source editions where applicable. Years refer to the original works, not the dates of translation. A catalogue entry does not imply permission to redistribute its full text.</p>
+    <p>A reading collection, not a list of original research publications. Original authorship is retained throughout. Translations and original reading guides are labeled separately. New AI-assisted online drafts await Elvis Han Cui's review; they are not represented as his finished original writing. Years refer to the original works, not the dates of translation. A catalogue entry does not imply permission to redistribute its full text.</p>
     <a href="{{ '/writing/' | relative_url }}">Back to Writing <span aria-hidden="true">←</span></a>
   </footer>
 </article>
