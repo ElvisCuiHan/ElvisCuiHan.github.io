@@ -1,6 +1,6 @@
 <ol class="paper-list">
   {% for paper in include.papers %}
-  <li data-paper-id="{{ paper.id | escape }}">
+  <li data-paper-id="{{ paper.id | escape }}" id="paper-{{ paper.id | escape }}">
     <div class="paper-title">{{ paper.title | escape }}</div>
     <div class="paper-authors">{% assign authors = paper.authors | split: ', ' %}{% for author in authors %}{% if author == 'Elvis Han Cui' or author == 'Han Cui' or author == 'Elvis Cui' or author == 'Eliuvish Han Cui' or author == 'Eliuvish Cuicizion' %}<strong>{{ author | escape }}</strong>{% else %}{{ author | escape }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}, {{ paper.year }}</div>
     {% if paper.venue %}<div class="paper-venue">{{ paper.venue | escape }}</div>{% endif %}

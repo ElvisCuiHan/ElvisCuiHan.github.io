@@ -1,0 +1,45 @@
+- name: Zhejiang University
+  logo: /assets/images/institutions/zju.png
+  logo_shape: seal
+  label: Zhejiang
+  chinese: 浙江大学
+  context: Education
+  url: https://www.zju.edu.cn/english/
+- name: University of California, Los Angeles
+  logo: /assets/images/institutions/ucla.png
+  logo_shape: seal
+  label: UCLA
+  chinese: 加州大学洛杉矶分校
+  context: Education & research
+  url: https://www.ucla.edu/
+- name: University of California, Irvine
+  logo: /assets/images/institutions/uci.png
+  label: UC Irvine
+  chinese: 加州大学尔湾分校
+  context: Research
+  url: https://uci.edu/
+- name: Westlake University
+  logo: /assets/images/institutions/westlake-university-logo-color.png
+  label: Westlake
+  chinese: 西湖大学
+  context: Current research
+  url: https://www.westlake.edu.cn/
+- name: Hengrui Pharmaceuticals
+  logo: /assets/images/institutions/hengrui.png
+  label: Hengrui
+  chinese: 恒瑞医药
+  context: Industry experience
+  url: https://www.hengrui.com/index.html
+- name: Huadong Medicine
+  logo: /assets/images/institutions/huadong.svg
+  logo_surface: navy
+  label: Huadong
+  chinese: 华东医药
+  context: Industry experience
+  url: https://www.eastchinapharm.com/
+- name: Kuntuo — an IQVIA company
+  logo: /assets/images/institutions/kuntuo.png
+  label: Kuntuo
+  chinese: 昆拓 / 艾昆纬
+  context: Industry experience
+  url: https://www.kuntuo-cro.com/

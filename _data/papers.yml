@@ -36,7 +36,7 @@
   year: 2025
   venue: "The New England Journal of Statistics in Data Science, 3(1), 42–54"
   category: "article"
-  selected: true
+  selected: false
   links:
     - label: "paper"
       url: https://doi.org/10.51387/25-NEJSDS76
@@ -51,7 +51,7 @@
   year: 2024
   venue: "Statistics and Computing, 34, 156"
   category: "article"
-  selected: true
+  selected: false
   links:
     - label: "paper"
       url: https://doi.org/10.1007/s11222-024-10468-8
@@ -328,7 +328,7 @@
   year: 2026
   venue: "Textbook / monograph working manuscript · arXiv:2606.11282"
   category: "longform"
-  selected: false
+  selected: true
   links:
     - label: "arxiv"
       url: https://arxiv.org/abs/2606.11282

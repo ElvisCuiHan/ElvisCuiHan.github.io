@@ -1,5 +1,5 @@
 ---
-title: "2021 Winter TA"
+title: "2022 Winter TA"
 collection: teaching
 type: "PhD course"
 permalink: /teaching/2022-Winter-teaching-6

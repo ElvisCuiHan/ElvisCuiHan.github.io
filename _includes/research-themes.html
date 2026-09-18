@@ -1,0 +1,22 @@
+<div class="research-themes{% if include.detail %} research-themes--detail{% endif %}">
+  {% for theme in site.data.research %}
+  <section class="research-theme" id="{{ theme.id }}" aria-labelledby="{{ theme.id }}-title">
+    <p class="theme-number">{{ theme.number }} <span>RESEARCH THEME</span></p>
+    <h3 id="{{ theme.id }}-title">{{ theme.title }}</h3>
+    <p class="theme-question">{{ theme.question }}</p>
+    <p class="theme-description">{{ theme.description }}</p>
+    <p class="theme-keywords">{{ theme.keywords }}</p>
+    {% if include.detail %}
+    <ul class="theme-works">
+      {% for work in theme.works %}
+      {% assign paper = site.data.papers | where: 'id', work.id | first %}
+      <li><a href="#paper-{{ paper.id }}"><span>{{ work.label }}</span><small>{{ paper.year }} · {% if paper.category == 'preprint' %}Preprint{% else %}Published article{% endif %}</small><span class="theme-work-arrow" aria-hidden="true">↗</span></a></li>
+      {% endfor %}
+    </ul>
+    <p class="theme-status">{{ theme.status }}</p>
+    {% else %}
+    <a class="theme-explore" href="{{ '/publications/' | relative_url }}#{{ theme.id }}">Explore this thread <span aria-hidden="true">→</span></a>
+    {% endif %}
+  </section>
+  {% endfor %}
+</div>

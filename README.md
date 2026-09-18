@@ -2,18 +2,32 @@
 
 Personal academic website: [elviscuihan.github.io](https://elviscuihan.github.io/).
 
-This edition adds a light scholarly finish to the academic website:
-original ink-wash landscape backgrounds, ink-green text, warm accents and serif headings.
-The existing introduction, round portrait, compact bibliography and independent
-pages are retained. The header offers three explicit appearances:
+The local **Research-first edition (2026-09-18)** reorganizes the homepage around
+research questions, three connected themes, annotated featured papers and the
+personal card. A navy / ivory / muted-gold palette connects the site to the card;
+the original ink landscape, illustrated avatar and independent pages remain.
+The publications page introduces the same research threads before the complete
+28-record bibliography. The seven education/work-history links now live in a
+compact logo directory on **External Links**, not the homepage. They do not
+represent institutional partnerships. **Publication authorized by the author on
+2026-09-18**; this edition is prepared for the existing `master`-based GitHub Pages
+release. See [release scope and verification](docs/RELEASE_2026-09-18.md).
+See [the design, sources, route cleanup and QA](docs/RESEARCHER_EDITION_2026-09-18.md).
+Earlier local-only notes record the state at their writing; today's explicit
+“Push” authorization supersedes those publication holds, not the recorded QA
+limitations or third-party rights notices.
+
+One icon button in the header cycles through three appearances:
 **Ink & Paper** (classical ink landscape), **Day** (clean white), and **Night**
-(clean dark). Your choice is saved across pages and reloads. The landscape is
+(clean dark), then back to Ink & Paper. Click it or use Enter/Space when focused;
+the tooltip names the current and next modes. Your choice is saved across pages
+and reloads. The landscape is
 decorative, appears only in Ink & Paper, and is omitted from print.
 Use `/?appearance=ink` to open the landscape directly, or `?appearance=day`
-and `?appearance=night` for the other appearances. Switching the menu updates
+and `?appearance=night` for the other appearances. Clicking the button updates
 an existing appearance parameter, so a later reload respects the new choice.
 
-**Release authorized by the author on 2026-09-17.** This edition was developed in
+**Previous edition: release authorized by the author on 2026-09-17.** It was developed in
 a separate worktree on `polish/live-scholar-20260917`, based on `origin/master`
 at `80073ad`. GitHub Pages publishes `master` at the repository root. The earlier
 full-redesign worktree is unchanged. Historical local-only review notes below
@@ -22,7 +36,11 @@ describe the pre-release stages; this authorization supersedes their release hol
 ## Maintain the site
 
 - Introduction: `_pages/about.md`
-- Publications: `_data/papers.yml` (`selected: true` displays an entry on the homepage)
+- Publications: `_data/papers.yml` (`selected: true` marks the homepage shortlist)
+- Homepage selected-publication order, real first-page thumbnails, venue labels and optional overviews: `_data/featured.yml` (must match selected paper IDs; order is independent of the full bibliography)
+- Selected work: scGTM → The Statistical Compass → Investigating the value of glucodensity. Thumbnail sources and preview limitations: `docs/SELECTED_PUBLICATIONS_2026-09-18.md`
+- Research themes, questions and representative paper links: `_data/research.yml`
+- Education/work-history logo directory: `_data/institutions.yml` and `_includes/institution-links.html`
 - Web CV: `_pages/cv.md`; print this page to save a current PDF
 - Writing page: `_pages/writing.md`
 - Featured essay: `_includes/featured-essay.html` (Writing page)
@@ -30,19 +48,28 @@ describe the pre-release stages; this authorization supersedes their release hol
 - Translations page: `_pages/translations.html`; Writing entry module: `_includes/translations-preview.html`
 - Mentor names, sources and recollections: `_data/mentors.yml`
 - Mentors page: `_pages/mentors.html` (accessible from the main navigation)
-- Friends and personal acknowledgements: `_data/friends.yml`
-- Friends page: `_pages/friends.html` (top navigation, footer, and a short homepage entry)
+- Previous extended acknowledgement text (not rendered): `_data/friends.yml`
+- External Links page: `_pages/friends.html` (top navigation and footer; original `/friends/` URL preserved)
+- Homepage styling credit: `_layouts/about.html` (direct acknowledgement and link to Yating Zou)
+- WeChat editorial card and avatar viewport: `_layouts/about.html`, `assets/css/researcher.css`
+- Author-supplied public WeChat profile screenshot: `assets/images/wechat-account-profile.png`; provenance: `docs/WECHAT_CARD_2026-09-18.md`
+- Copy-account-name behavior: `assets/js/scholar.js`; check with `node scripts/check-scholar.cjs`
+- Personal header logo and favicon: `assets/images/elvis-phoenix-logo.png` (latest author-supplied green phoenix/book emblem, unchanged); previous calligraphy logo is retained as an unused asset
+- Personal/institutional image provenance and local-preview limits: `docs/LOGO_DIRECTORY_2026-09-18.md`
 - Navigation: `_data/navigation.yml`
 - Base styling: `assets/css/academic.css`
 - Light-polish overlay: `assets/css/scholar-polish.css`
-- Three-mode appearance selector: `assets/js/academic-style.js`
+- Research-first visual system: `assets/css/researcher.css`
+- Legacy URL redirects: canonical pages' `redirect_from` lists, rendered by `_layouts/redirect.html`
+- Three-mode appearance cycle button: `assets/js/academic-style.js`
 - Legacy two-mode script (no longer loaded): `assets/js/academic-theme.js`
 - Generated landscape: `assets/images/ink-landscape-v1.jpg` (web asset); PNG is the uncompressed source
 
 The English web CV carries forward the previous local review's July 2026 CV and
-personal-card work. Unconfirmed details remain flagged in the page's editorial
-note. The historical `files/CV.pdf` is preserved unchanged, not presented as the
-current CV download.
+personal-card work. Unconfirmed job dates/titles are tracked in the edition's
+content notes, not displayed as CV facts. The historical `files/CV.pdf` is
+preserved locally but excluded from the generated site. Use the web CV's print
+button for a current PDF. The standalone legacy CV HTML redirects to `/cv/`.
 
 The essay **《鞅的辉煌与苦难》** links to the author's supplied WeChat original.
 Its full text and images are not mirrored; no publication date or summary has
@@ -51,11 +78,14 @@ been invented.
 The **Mentors** page preserves the author's seven-person order, with English
 recollections and Chinese originals. These are personal memories, not a formal
 advisor roster or third-party quotations. Add author-approved longer pieces to
-each entry's optional `essay_paragraphs` list. Keep IDs unchanged so existing
+each entry's optional `essay_paragraphs` list; longer pieces open in a disclosure.
+The compact view shows one bilingual recollection per person. Keep IDs unchanged so existing
 links continue to work. See [mentor content notes](docs/MENTORS_CONTENT.md).
 
-The homepage omits Writing, Translations and Mentors previews to keep the page
-focused. Their content remains intact on independent pages.
+The homepage includes one compact Writing entry. Expanded translations and
+mentor recollections remain on their independent pages. Empty Talks and Blog
+archives redirect to Writing; they are no longer promoted in navigation.
+Past Teaching entries remain clearly labeled as historical appointments.
 
 **Translations & Notes** is linked from Writing. It contains eleven
 unofficial Chinese reading projects, led by *Wasserstein Regression*. The
@@ -78,9 +108,13 @@ Open [the local preview](http://127.0.0.1:4017/). The server binds to loopback
 only and disables caching. Stop it with `Ctrl+C`; rebuild after source edits,
 then refresh the browser. A Python server serves the generated static website;
 the website itself uses Jekyll, HTML, CSS and JavaScript, not Streamlit or PHP.
+Do not open `_layouts/about.html` directly: that is a Liquid source template,
+not the rendered website. Local redirects stay on the preview host; published
+canonical URLs point to the GitHub Pages domain.
 
 ```sh
 node scripts/check-style.cjs
+node scripts/check-scholar.cjs
 ruby scripts/check-site.rb _site-preview
 git diff --check
 ```
@@ -97,11 +131,14 @@ and rollback instructions, and [QA](docs/QA.md) for the verification record.
 
 ## Credits
 
-An enormous thank-you to [Yating Zou](https://yatingz205.github.io/) for the
-styling inspiration behind this website: its clean layout, thoughtful spacing
-and quiet academic character. A personal acknowledgement and friendly external
-link appear on the independent **Friends** page. This credit identifies visual
-inspiration, not a claim that Yating implemented or endorses this website.
+Special thanks to [Yating Zou](https://yatingz205.github.io/) for the styling
+inspiration. The About page carries a single-sentence acknowledgement; the
+External Links page is now only a directory.
+
+The homepage publication list takes organizational cues from
+[Arash A. Amini's site](https://faculty.stat.ucla.edu/arashamini/):
+compact bibliographic rows, venue/year markers and separate resource links.
+All paper data, summaries and links remain the author's existing verified records.
 
 The landscape was generated with the built-in imagegen tool for this website.
 See [the prompt, asset record, and QA](docs/INK_LANDSCAPE_2026-09-17.md).

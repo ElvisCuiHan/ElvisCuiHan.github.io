@@ -3,12 +3,19 @@ layout: single
 title: Publications
 permalink: /publications/
 excerpt: "Journal and conference articles, preprints, monograph, and dissertation by Elvis Han Cui."
+redirect_from:
+  - /publications.html
+  - /publications/2010-10-01-paper-title-number-2/
 ---
 
 {% assign articles = site.data.papers | where: 'category', 'article' %}
 {% assign preprints = site.data.papers | where: 'category', 'preprint' %}
 {% assign longform = site.data.papers | where: 'category', 'longform' %}
-<p class="publication-intro">My work spans statistical methodology, experimental design, biomedical data analysis, and machine learning. Browse the bibliography below or visit <a href="{{ site.author.googlescholar }}">Google Scholar</a>.</p>
+<p class="publication-deck">Different scales. A shared pursuit of understanding.</p>
+<p class="publication-intro">My research connects stochastic dynamics, statistical methodology and computational biology. These three threads offer a guide to the work; the complete bibliography below preserves each paper’s original title, authors and publication status.</p>
+<nav class="research-index" aria-label="Research themes">{% for theme in site.data.research %}<a href="#{{ theme.id }}"><span>{{ theme.number }}</span> {{ theme.short }}</a>{% endfor %}<a href="#bibliography">Full bibliography ↓</a></nav>
+{% include research-themes.html detail=true %}
+<div class="bibliography-heading" id="bibliography"><p class="section-kicker">THE COMPLETE RECORD</p><h2>Publications &amp; Preprints</h2><p>Browse by publication type, with newest records first within each section. Also on <a href="{{ site.author.googlescholar }}">Google Scholar ↗</a>.</p></div>
 <nav class="section-links" aria-label="Publication categories"><a href="#articles">Articles · {{ articles.size }}</a><a href="#preprints">Preprints · {{ preprints.size }}</a><a href="#books-thesis">Monograph &amp; Dissertation · {{ longform.size }}</a></nav>
 
 <section id="articles" class="publication-section">

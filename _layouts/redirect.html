@@ -1,0 +1,17 @@
+---
+layout: null
+---
+{% assign local_target = page.redirect.to | remove_first: site.url %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page moved · Elvis Han Cui</title>
+  <link rel="canonical" href="{{ page.redirect.to | escape }}">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url={{ local_target | escape }}">
+  <script>location.replace({{ local_target | jsonify }} + location.search + location.hash);</script>
+</head>
+<body><main><h1>This page has moved.</h1><p><a href="{{ local_target | escape }}">Continue to the current page</a>.</p></main></body>
+</html>

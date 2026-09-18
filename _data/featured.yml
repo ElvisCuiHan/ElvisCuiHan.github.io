@@ -1,0 +1,31 @@
+- id: scgtm
+  venue_label: Bioinformatics
+  lens: Tracing cellular variation
+  context: A generalized trend model for single-cell data.
+  thumbnail: /assets/images/publications/scgtm-first-page.png
+  thumbnail_alt: First page of the scGTM article in Bioinformatics
+  thumbnail_width: 651
+  thumbnail_height: 840
+  preview_label: Article first page
+- id: statistical-compass
+  venue_label: Working manuscript
+  lens: From data to decision
+  context: A textbook-length exploration of probability, stochastic processes and statistical inference, available as an arXiv working manuscript.
+  thumbnail: /assets/images/publications/statistical-compass-first-page.png
+  thumbnail_alt: Original cover of The Statistical Compass from the public arXiv manuscript
+  thumbnail_width: 541
+  thumbnail_height: 840
+  preview_label: arXiv manuscript cover
+  license_label: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0/
+- id: glucodensity
+  venue_label: Frontiers
+  lens: Seeing the whole distribution
+  context: A distributional perspective on continuous glucose-monitoring data in type 1 diabetes.
+  thumbnail: /assets/images/publications/glucodensity-first-page.png
+  thumbnail_alt: First page of Investigating the value of glucodensity analysis in Frontiers in Clinical Diabetes and Healthcare
+  thumbnail_width: 595
+  thumbnail_height: 840
+  preview_label: Article first page
+  license_label: CC BY
+  license_url: https://creativecommons.org/licenses/by/4.0/

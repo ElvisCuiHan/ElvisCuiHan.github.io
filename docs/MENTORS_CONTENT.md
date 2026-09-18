@@ -40,7 +40,8 @@ and images are not copied into the repository.
 
 - `_data/mentors.yml` is the single source for order, links and short memories.
 - Add an optional `essay_paragraphs` list to a mentor only after receiving the
-  author's text. The page already renders it below the short bilingual memory.
+  author's text. The compact page shows it in an optional disclosure below the
+  short bilingual memory.
 - Preserve anchor IDs, even if names, translations or longer essays are revised.
 - Photos require an author-provided or appropriately licensed source.
 - No automatic publication: this branch remains a local-only preview.
@@ -65,3 +66,15 @@ memories, homepage links and source references.
 - Browser console reported no warnings or errors during the checked flows.
 - This is not a full screen-reader, print, every-browser or external-link audit.
   No production deployment was performed.
+
+## Compact edition — 2026-09-18
+
+At the author's request, removed the duplicated index, large introductory deck,
+per-person theme labels and repeated lesson headings. All seven teachers remain
+in their original order, with stable anchors, English recollections and Chinese
+notes unchanged. Names themselves now link to the same biographical references.
+The caveat is one sentence rather than a large closing section.
+
+Browser-checked at 1440 × 1000 and 390 × 844: no horizontal overflow; the desktop
+article is about 992 px tall. The site checker still verifies all seven memories
+and reference links. Build, appearance tests and local-link checks pass. No push.

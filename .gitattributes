@@ -1,0 +1,2 @@
+# Preserve this third-party SVG verbatim, including CRLF and trailing spaces.
+assets/images/institutions/huadong.svg -text -whitespace

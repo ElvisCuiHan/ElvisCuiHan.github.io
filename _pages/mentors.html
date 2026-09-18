@@ -4,39 +4,28 @@ title: Mentors
 permalink: /mentors/
 excerpt: Personal recollections of the teachers who shaped how I work, think, and learn.
 ---
-<article class="mentors-page">
+<article class="mentors-page mentors-page--compact">
   <header class="page-heading mentor-heading">
     <p class="section-kicker">Gratitude, in practice <span lang="zh-CN">· 师恩</span></p>
     <h1>Mentors</h1>
-    <p class="mentor-deck">What I learned.<br>What I carry forward.</p>
-    <p class="mentor-intro">These are the teachers whose lessons I carry into my work. I begin with a few words of gratitude, and will return to each with a longer reflection.</p>
-    <p class="mentor-author">Personal recollections by Elvis Han Cui</p>
+    <p class="mentor-intro">With gratitude to the teachers who shaped how I work, think and learn.</p>
   </header>
-  <nav class="mentor-index" aria-label="Mentor recollections">
-    {% for mentor in site.data.mentors %}<a href="#{{ mentor.id }}"><span aria-hidden="true">{{ forloop.index | prepend: '0' }}</span> {{ mentor.name }}</a>{% endfor %}
-  </nav>
   <div class="mentor-recollections">
     {% for mentor in site.data.mentors %}
     <section class="mentor-entry" id="{{ mentor.id }}" aria-labelledby="{{ mentor.id }}-title">
       <div class="mentor-identity">
-        <p class="mentor-number" aria-hidden="true">{{ forloop.index | prepend: '0' }}</p>
-        <h2 id="{{ mentor.id }}-title"><span class="mentor-honorific">Prof.</span> {{ mentor.name }}{% if mentor.chinese_name %}<span class="mentor-chinese-name" lang="zh-CN">{{ mentor.chinese_name }}</span>{% endif %}</h2>
-        <p class="mentor-affiliation">{{ mentor.institution }}<br>{{ mentor.field }}</p>
-        <a class="mentor-source" href="{{ mentor.source_url }}">{{ mentor.source_label }}<span aria-hidden="true"> ↗</span></a>
+        <h2 id="{{ mentor.id }}-title"><a href="{{ mentor.source_url }}" aria-label="{{ mentor.name }} — {{ mentor.source_label }}">{{ mentor.name }}<span aria-hidden="true"> ↗</span></a></h2>
+        <p class="mentor-affiliation">{{ mentor.institution }} · {{ mentor.field }}</p>
       </div>
       <div class="mentor-memory">
-        <p class="mentor-theme">{{ mentor.theme }}</p>
-        <h3>{{ mentor.lesson }}</h3>
         <p class="mentor-recollection">{{ mentor.recollection }}</p>
         <p class="mentor-memory-zh" lang="zh-CN">{{ mentor.memory_zh }}</p>
-        {% if mentor.essay_paragraphs %}<div class="mentor-essay">{% for paragraph in mentor.essay_paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}</div>{% endif %}
+        {% if mentor.essay_paragraphs %}<details class="mentor-expanded"><summary>Read the longer reflection</summary>{% for paragraph in mentor.essay_paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}</details>{% endif %}
       </div>
     </section>
     {% endfor %}
   </div>
   <footer class="mentor-colophon">
-    <p>Notes of gratitude, to be continued.</p>
-    <p>These recollections are written in my own words, not verbatim quotations or a list of formal academic advisors. The Chinese notes preserve my original recollections; the English text is an edited translation. Linked references provide biographical context, not a source for the personal memories.</p>
-    <p><a href="{{ '/writing/' | relative_url }}">More writing <span aria-hidden="true">→</span></a></p>
+    <p>Personal recollections, not verbatim quotations or a formal advisor list. Names link to biographical references.</p>
   </footer>
 </article>

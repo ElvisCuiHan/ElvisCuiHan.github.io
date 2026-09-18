@@ -150,6 +150,30 @@ exclude:
   - scripts
   - Gemfile.lock
   - package-lock.json
+  # Keep template sources out of the site; legacy CV HTML is replaced by a redirect.
+  - _pages/markdown.md
+  - _pages/archive-layout-with-content.md
+  - _pages/non-menu-page.md
+  - _pages/page-archive.html
+  - _pages/collection-archive.html
+  - _pages/category-archive.html
+  - _pages/tag-archive.html
+  - _pages/portfolio.html
+  - _pages/talkmap.html
+  - _pages/talks.html
+  - _pages/year-archive.html
+  - _pages/terms.md
+  - files/CV.pdf
+  - files/paper1.pdf
+  - files/paper2.pdf
+  - files/paper3.pdf
+  - markdown_generator
+  - talkmap
+  - talkmap.py
+  - talkmap.ipynb
+  - CONTRIBUTING.md
+  - CHANGELOG.md
+  - markdown.html
 keep_files:
   - .git
   - .svn
@@ -183,10 +207,10 @@ collections:
     output: true
     permalink: /:collection/:path/
   publications:
-    output: true
+    output: false
     permalink: /:collection/:path/
   portfolio:
-    output: true
+    output: false
     permalink: /:collection/:path/
   #talks:
    # output: true

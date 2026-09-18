@@ -5,6 +5,9 @@ permalink: /cv/
 excerpt: "Elvis Han Cui: statistics, stochastic dynamics, quantitative biology and clinical research."
 redirect_from:
   - /resume
+  - /resume/
+  - /cv.html
+  - /_pages/cv.html
 ---
 
 <p class="section-kicker">ELVIS HAN CUI</p>
@@ -66,4 +69,4 @@ redirect_from:
 </div>
 </div>
 
-<div class="editor-note"><p>Prepared from the author's July 2026 CV, personal card and previously confirmed current appointment. The public LinkedIn link was checked, but the full profile could not be accessed. The postdoctoral start month has not been inferred; private phone numbers and internal project identifiers are omitted. The Huadong Medicine role shown on the card still needs a title and dates. The print button can save this page as a PDF; the source CV remains unchanged.</p></div>
+<p class="quiet-note">Updated September 2026. Use “Print / Save as PDF” above for a current copy. Historical teaching appointments are listed in the <a href="{{ '/teaching/' | relative_url }}">teaching archive</a>.</p>

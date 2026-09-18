@@ -1,0 +1,43 @@
+- id: stochastic-dynamics
+  number: "01"
+  title: Stochastic Dynamics & Quantitative Biology
+  short: Dynamics & Biology
+  question: What can fluctuations reveal about living systems?
+  description: Connecting molecular observations to stochastic models, with a current focus on fluorescence correlation spectroscopy and photon-counting data.
+  keywords: FCS · Stochastic processes · Semi-Markov models
+  status: FCS and photon-counting inference are ongoing research; the linked preprints address stochastic-process methods.
+  works:
+    - id: markov-renewal
+      label: Markov renewal & proportional hazards
+    - id: brownian-motion
+      label: Brownian motion for biostatistics
+- id: statistical-methodology
+  number: "02"
+  title: Statistical Methodology
+  short: Statistical Methodology
+  question: How can we learn more from the measurements we can afford?
+  description: Designing informative experiments and developing statistical methods for survival, multistate and biomedical data.
+  keywords: Optimal design · Survival · Multistate models
+  status: Journal articles and methodological preprints, with publication status shown for each record.
+  works:
+    - id: nonlinear-mixed-design
+      label: Optimal design for nonlinear mixed-effects models
+    - id: pdxpower
+      label: Power analysis for preclinical experiments
+    - id: counting-processes
+      label: Counting processes & survival analysis
+- id: computational-biology
+  number: "03"
+  title: Computational Biology & AI
+  short: Computation & AI
+  question: How can computational models make biological variation interpretable?
+  description: Modeling single-cell trends and biomedical measurements, alongside work on representation learning and scientific optimization.
+  keywords: scGTM · Single-cell data · Machine learning
+  status: Published work spanning biological data analysis and machine learning.
+  works:
+    - id: scgtm
+      label: Single-cell generalized trend model
+    - id: glucodensity
+      label: Distributional views of glucose monitoring
+    - id: dss-prompt
+      label: Few-shot class-incremental learning

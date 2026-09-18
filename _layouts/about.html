@@ -3,33 +3,71 @@ layout: default
 ---
 <article class="about-page">
   <header class="page-heading">
+    <p class="section-kicker">STATISTICS · LIFE SCIENCES · SCIENTIFIC INFERENCE</p>
     <h1><strong>Elvis Han</strong> Cui <span class="chinese-name" lang="zh">崔涵</span></h1>
     <p class="page-subtitle">Qian Lab · Center for Interdisciplinary Studies<br>School of Science, <a href="https://www.westlake.edu.cn/">Westlake University</a></p>
   </header>
   <div class="about-intro">
-    <div class="about-body">{{ content }}</div>
     <figure class="profile-photo">
       <img src="{{ '/assets/images/elvis-avatar.png' | relative_url }}" alt="Illustrated avatar selected by Elvis Han Cui" width="1158" height="1250" fetchpriority="high">
     </figure>
+    <div class="about-body">{{ content }}</div>
   </div>
+  <section class="research-question" aria-labelledby="question-title">
+    <div><p class="section-kicker">THE QUESTION THAT CONNECTS MY WORK</p><h2 id="question-title">From noisy observations<br>to meaningful understanding.</h2><p>I study how statistical inference and stochastic models can help us understand living systems — and how better experiments can make that understanding possible.</p></div>
+    {% include trajectory.html %}
+  </section>
+  <section class="research-overview" aria-labelledby="research-title">
+    <div class="section-heading"><div><p class="section-kicker">ONE TRAJECTORY, THREE THREADS</p><h2 id="research-title">What I Study</h2></div><a href="{{ '/publications/' | relative_url }}">Research &amp; publications <span aria-hidden="true">→</span></a></div>
+    {% include research-themes.html %}
+  </section>
   <section class="selected-publications" aria-labelledby="selected-title">
-    <h2 id="selected-title"><a href="{{ '/publications/' | relative_url }}">Selected Publications</a></h2>
-    {% assign selected = site.data.papers | where: 'selected', true %}
-    {% include paper-list.html papers=selected %}
-    <p class="all-publications"><a href="{{ '/publications/' | relative_url }}">All publications &amp; preprints <span aria-hidden="true">→</span></a></p>
+    <div class="section-heading"><h2 id="selected-title">Selected Publications</h2><a href="{{ '/publications/' | relative_url }}">View all publications <span aria-hidden="true">→</span></a></div>
+    <ol class="paper-list selected-bibliography">
+      {% for feature in site.data.featured %}
+      {% assign paper = site.data.papers | where: 'id', feature.id | first %}
+      <li data-paper-id="{{ paper.id }}">
+        <figure class="publication-preview">
+          <a class="publication-thumbnail" href="{{ paper.links.first.url }}" aria-label="Read {{ paper.title | escape }}">
+            <img src="{{ feature.thumbnail | relative_url }}" alt="{{ feature.thumbnail_alt | escape }}" width="{{ feature.thumbnail_width }}" height="{{ feature.thumbnail_height }}" loading="lazy" decoding="async">
+          </a>
+          <figcaption>{{ feature.preview_label }}{% if feature.license_url %} · <a href="{{ feature.license_url }}">{{ feature.license_label }}</a>{% endif %}</figcaption>
+        </figure>
+        <div class="publication-body">
+          <div class="publication-label"><span>{{ feature.venue_label }}</span><time datetime="{{ paper.year }}">{{ paper.year }}</time></div>
+          <h3 class="paper-title"><a href="{{ paper.links.first.url }}">{{ paper.title }}</a></h3>
+          <p class="paper-authors">{% assign authors = paper.authors | split: ', ' %}{% for author in authors %}{% if author == 'Elvis Han Cui' or author == 'Han Cui' or author == 'Eliuvish Han Cui' %}<strong>{{ author | escape }}</strong>{% else %}{{ author | escape }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+          <p class="paper-venue">{{ paper.venue }} · {{ paper.year }}</p>
+          {% if paper.note %}<p class="publication-status">{{ paper.note }}</p>{% endif %}
+          <div class="paper-links">{% for link in paper.links %}<a href="{{ link.url }}" aria-label="{{ link.label | escape }}: {{ paper.title | escape }}">{{ link.label | capitalize }}</a>{% endfor %}<details class="paper-summary"><summary>Overview</summary><p>{{ feature.context }}</p></details></div>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
   </section>
-  <section id="friends" class="friends-section" aria-labelledby="friends-title">
-    <div class="writing-heading"><h2 id="friends-title"><a href="{{ '/friends/' | relative_url }}">Friends</a></h2><span lang="zh-CN">友朋 · 心怀谢意</span></div>
-    <p class="friends-preview-intro" id="friend-yating-zou">With a special thank-you to Yating Zou for the styling inspiration behind this little corner of the web.</p>
-    <p class="all-publications"><a href="{{ '/friends/' | relative_url }}">Friends &amp; acknowledgements <span aria-hidden="true">→</span></a></p>
+  <section class="research-notes" aria-labelledby="notes-title">
+    <div><p class="section-kicker">ALONGSIDE THE PAPERS</p><h2 id="notes-title">Notes &amp; Perspectives</h2><p>Writing, translations and reading notes — a place to think beyond the formal paper.</p></div>
+    <a class="note-link" href="{{ '/writing/' | relative_url }}"><span class="note-language">ESSAY · IN CHINESE</span><span class="note-title" lang="zh-CN">鞅的辉煌与苦难</span><span class="note-cta">Read the essay &amp; explore my writing <span aria-hidden="true">→</span></span></a>
   </section>
-  <section id="wechat" class="wechat-account" aria-labelledby="wechat-title">
-    <div>
-      <p class="wechat-label">WeChat <span aria-hidden="true">·</span> Official Account</p>
-      <h2 id="wechat-title" lang="zh-CN">{{ site.author.wechat_public_account | escape }}</h2>
+  <aside id="friends" class="styling-credit" aria-label="Styling acknowledgement">
+    <p id="friend-yating-zou">Special thanks to <a href="https://yatingz205.github.io/">Yating Zou <span aria-hidden="true">↗</span></a> for the styling of this website.</p>
+  </aside>
+  <section id="wechat" class="wechat-account wechat-editorial" aria-labelledby="wechat-title">
+    <div class="wechat-identity">
+      <span class="wechat-portrait"><img src="{{ '/assets/images/wechat-account-profile.png' | relative_url }}" alt="让统计再次伟大 official account avatar: an open book, glasses and a cup of coffee" width="842" height="274" loading="lazy" decoding="async"></span>
+      <div class="wechat-copy">
+        <p class="wechat-label">WECHAT <span aria-hidden="true">/</span> <span lang="zh-CN">公众号</span></p>
+        <h2 id="wechat-title" lang="zh-CN">{{ site.author.wechat_public_account | escape }}</h2>
+        <p class="wechat-deck">Statistics, models, and another way of seeing the world.</p>
+      </div>
     </div>
     <div class="wechat-instructions">
-      <p>Search this name in WeChat under Official Accounts.</p>
+      <div class="wechat-actions">
+        <button type="button" data-copy-wechat="{{ site.author.wechat_public_account | escape }}" aria-describedby="wechat-search-help" hidden>Copy name <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M13 4V3H3v10h1"/></svg></button>
+        <a href="https://mp.weixin.qq.com/s/hAIXft_2gpk3P9Mvs0X_RQ" target="_blank" rel="noopener noreferrer" aria-label="Read 鞅的辉煌与苦难 on WeChat (opens in a new tab)">Read an essay <span aria-hidden="true">↗</span></a>
+      </div>
+      <p id="wechat-search-help">Find me in WeChat → Official Accounts.</p>
+      <p class="wechat-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </div>
   </section>
   <section class="business-card" aria-labelledby="business-card-title">

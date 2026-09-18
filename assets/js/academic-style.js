@@ -1,8 +1,10 @@
-/* Three explicit appearances. Runs before CSS to prevent a preference flash. */
+/* One-button cycle: Ink & Paper → Day → Night. Applies preferences before CSS. */
 (function () {
   'use strict';
   var root = document.documentElement;
   var key = 'elvis-appearance';
+  var modes = ['ink', 'day', 'night'];
+  var labels = {ink: 'Ink & Paper', day: 'Day', night: 'Night'};
   function valid(value) { return value === 'ink' || value === 'day' || value === 'night'; }
   var preference = 'ink';
   try {
@@ -31,15 +33,21 @@
     try { localStorage.setItem(key, preference); } catch (_) {}
   }
   document.addEventListener('DOMContentLoaded', function () {
-    var control = document.querySelector('.style-control');
-    var select = document.querySelector('#visual-style');
-    if (!control || !select) return;
-    select.value = preference;
-    control.hidden = false;
-    select.addEventListener('change', function () {
-      if (!valid(select.value)) return;
-      preference = select.value;
+    var button = document.querySelector('#appearance-toggle');
+    if (!button) return;
+    function nextMode() { return modes[(modes.indexOf(preference) + 1) % modes.length]; }
+    function updateButton() {
+      button.dataset.appearance = preference;
+      button.setAttribute('aria-label', 'Appearance: ' + labels[preference] + '. Switch to ' + labels[nextMode()] + '.');
+      button.title = labels[preference] + ' → ' + labels[nextMode()];
+    }
+    updateButton();
+    button.hidden = false;
+    // A native button provides both Enter and Space activation without custom keys.
+    button.addEventListener('click', function () {
+      preference = nextMode();
       apply(preference);
+      updateButton();
       try { localStorage.setItem(key, preference); } catch (_) {}
       try {
         var url = new URL(window.location.href);

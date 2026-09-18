@@ -3,6 +3,14 @@ layout: archive
 title: Writing
 permalink: /writing/
 excerpt: "Essays and reflections by Elvis Han Cui."
+redirect_from:
+  - /year-archive/
+  - /wordpress/blog-posts/
+  - /categories/
+  - /tags/
+  - /talks/
+  - /talkmap.html
+  - /talkmap/map.html
 ---
 
 <p class="writing-intro">Essays, translations and reading notes, alongside the research.</p>
