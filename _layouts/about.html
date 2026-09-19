@@ -3,23 +3,34 @@ layout: default
 ---
 <article class="about-page">
   <p class="home-styling-credit">With thanks to <a href="https://yatingz205.github.io/">Yating Zou</a> for the styling.</p>
-  <header class="page-heading">
-    <p class="section-kicker">STATISTICS · LIFE SCIENCES · SCIENTIFIC INFERENCE</p>
-    <h1><strong>Elvis Han</strong> Cui</h1>
-    <p class="page-subtitle">Qian Lab · Center for Interdisciplinary Studies<br>School of Science, <a href="https://www.westlake.edu.cn/">Westlake University</a></p>
+  <header class="research-banner" aria-labelledby="banner-title">
+    <div class="research-banner-text">
+      <h1 id="banner-title"><strong>Elvis Han</strong> Cui</h1>
+      <p class="banner-subtitle">Statistics for Dynamic Living Systems</p>
+      <p class="banner-threads">Stochastic Dynamics · Statistical Inference · Quantitative Biology</p>
+      <p id="question-title" class="banner-motto">From noisy observations to meaningful understanding.</p>
+    </div>
+    <div class="research-banner-stage">
+      <div class="research-banner-art">
+        <img src="{{ '/assets/images/research-landscape-banner.png' | relative_url }}" alt="Conceptual research landscape connecting molecular observations, photon-counting traces, cells, organisms and populations." width="2073" height="758" fetchpriority="high" decoding="async">
+      </div>
+      <nav class="research-banner-actions" aria-label="Explore my research">
+        <a class="banner-research" href="#research-title"><span>Research <span aria-hidden="true">→</span></span></a>
+        <a class="banner-publications" href="{{ '/publications/' | relative_url }}"><span>Publications <span aria-hidden="true">→</span></span></a>
+      </nav>
+    </div>
+    <p class="research-banner-caption">Conceptual research landscape <span aria-hidden="true">·</span> <a href="{{ '/assets/images/research-landscape-banner.png' | relative_url }}">View full artwork <span aria-hidden="true">↗</span></a></p>
   </header>
+  <p class="page-subtitle home-affiliation">Qian Lab · Center for Interdisciplinary Studies<br>School of Science, <a href="https://www.westlake.edu.cn/">Westlake University</a></p>
   <div class="about-intro">
     <figure class="profile-photo">
-      <img src="{{ '/assets/images/elvis-avatar.png' | relative_url }}" alt="Illustrated avatar selected by Elvis Han Cui" width="1158" height="1250" fetchpriority="high">
+      <img src="{{ '/assets/images/elvis-avatar.png' | relative_url }}" alt="Illustrated avatar selected by Elvis Han Cui" width="1158" height="1250" decoding="async">
     </figure>
     <div class="about-body">{{ content }}</div>
   </div>
-  <section class="research-question" aria-labelledby="question-title">
-    <div><p class="section-kicker">THE QUESTION THAT CONNECTS MY WORK</p><h2 id="question-title">From noisy observations<br>to meaningful understanding.</h2><p>I study how statistical inference and stochastic models can help us understand living systems — and how better experiments can make that understanding possible.</p></div>
-    {% include trajectory.html %}
-  </section>
   <section class="research-overview" aria-labelledby="research-title">
-    <div class="section-heading"><div><p class="section-kicker">ONE TRAJECTORY, THREE THREADS</p><h2 id="research-title">What I Study</h2></div><a href="{{ '/publications/' | relative_url }}">Research &amp; publications <span aria-hidden="true">→</span></a></div>
+    <div class="section-heading"><div><p class="section-kicker">ONE TRAJECTORY, THREE THREADS</p><h2 id="research-title" tabindex="-1">What I Study</h2></div><a href="{{ '/publications/' | relative_url }}">Research &amp; publications <span aria-hidden="true">→</span></a></div>
+    <p class="research-overview-intro">I study how statistical inference and stochastic models can help us understand living systems — and how better experiments can make that understanding possible.</p>
     {% include research-themes.html %}
   </section>
   <section class="selected-publications" aria-labelledby="selected-title">

@@ -2,6 +2,15 @@
 
 Personal academic website: [elviscuihan.github.io](https://elviscuihan.github.io/).
 
+**Research banner update (2026-09-19):** the author-selected landscape is now
+the homepage hero. Desktop displays the complete supplied image with native
+Research / Publications links over its painted buttons. Smaller screens have
+readable HTML headings and buttons alongside a CSS-framed detail of the same
+image; the complete artwork is always available. The former large navy question
+panel is replaced by the banner, and its research statement is preserved above
+the three themes. Avatar, logo, paper selections and the three appearances stay
+unchanged. See [banner release notes](docs/RELEASE_BANNER_2026-09-19.md).
+
 The local **Research-first edition (2026-09-18)** reorganizes the homepage around
 research questions, three connected themes, annotated featured papers and the
 personal card. A navy / ivory / muted-gold palette connects the site to the card;
@@ -46,6 +55,7 @@ describe the pre-release stages; this authorization supersedes their release hol
 ## Maintain the site
 
 - Introduction: `_pages/about.md`
+- Homepage banner: `_layouts/about.html`, `assets/css/research-banner.css`, and the unchanged author-supplied `assets/images/research-landscape-banner.png`. The wide-screen link positions depend on this exact image; update and retest them if replacing the artwork.
 - Display name: English-only “Elvis Han Cui” in the shared header and homepage title; Chinese personal-name labels are temporarily removed, while other Chinese content is unchanged.
 - Publications: `_data/papers.yml` (`selected: true` marks the homepage shortlist)
 - Homepage selected-publication order, real first-page thumbnails, venue labels and optional overviews: `_data/featured.yml` (must match selected paper IDs; order is independent of the full bibliography)
