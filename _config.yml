@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Elvis Han Cui"
 title_separator          : "-"
 name                     : &name "Elvis Han Cui"
-description              : &description "Elvis Han Cui — postdoctoral researcher in Qian Lab, Center for Interdisciplinary Studies, School of Science, Westlake University. Statistics, stochastic dynamics, and quantitative biology."
+description              : &description "Elvis Han Cui — postdoctoral researcher at the Institute of Natural Sciences, Westlake Institute for Advanced Study. Statistics, stochastic processes and quantitative biology."
 url                      : https://elviscuihan.github.io  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ElvisCuiHan/ElvisCuiHan.github.io"
@@ -73,7 +73,9 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : "goatcounter"
+  enabled                : false # Enable only after confirming ownership of the dashboard.
+  goatcounter_code       : "" # Public site code, never an API key or password.
   google:
     tracking_id          :
 
@@ -84,7 +86,7 @@ author:
   avatar           : "../assets/images/elvis-avatar.png"
   bio              : "Postdoctoral Researcher"
   location         : "Hangzhou, China"
-  employer         : "Qian Lab, Center for Interdisciplinary Studies, School of Science, Westlake University"
+  employer         : "Institute of Natural Sciences, Westlake Institute for Advanced Study"
   #pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=e1rC8lUAAAAJ&hl=en&oi=ao"
   email            :

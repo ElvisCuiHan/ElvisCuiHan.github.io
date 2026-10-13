@@ -130,6 +130,16 @@ notes](docs/TRANSLATIONS_CONTENT.md), including version hashes and attribution.
 
 ## Preview and verify
 
+The October 2026 editorial pass simplifies the homepage to a short biography,
+three research lines and the three author-selected illustrated publications.
+The original research banner and personal card remain available in collapsed
+disclosures. Ink & Paper, Day and Night still use the same appearance button.
+Current affiliation follows the author's September 22, 2026 record; historical
+appointments remain unchanged.
+
+Visitor analytics are prepared but disabled pending the owner's verified
+GoatCounter site code. See [activation and privacy notes](docs/VISITOR_ANALYTICS.md).
+
 Use a current Ruby (3.2+) and Bundler:
 
 ```sh
@@ -149,6 +159,7 @@ canonical URLs point to the GitHub Pages domain.
 ```sh
 node scripts/check-style.cjs
 node scripts/check-scholar.cjs
+node scripts/check-analytics.cjs
 ruby scripts/check-site.rb _site-preview
 git diff --check
 ```

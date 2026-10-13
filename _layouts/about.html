@@ -3,25 +3,10 @@ layout: default
 ---
 <article class="about-page">
   <p class="home-styling-credit">With thanks to <a href="https://yatingz205.github.io/">Yating Zou</a> for the styling.</p>
-  <header class="research-banner" aria-labelledby="banner-title">
-    <div class="research-banner-text">
+  <header class="personal-heading">
       <h1 id="banner-title"><strong>Elvis Han</strong> Cui</h1>
-      <p class="banner-subtitle">Statistics for Dynamic Living Systems</p>
-      <p class="banner-threads">Stochastic Dynamics · Statistical Inference · Quantitative Biology</p>
-      <p id="question-title" class="banner-motto">From noisy observations to meaningful understanding.</p>
-    </div>
-    <div class="research-banner-stage">
-      <div class="research-banner-art">
-        <img src="{{ '/assets/images/research-landscape-banner.png' | relative_url }}" alt="Conceptual research landscape connecting molecular observations, photon-counting traces, cells, organisms and populations." width="2073" height="758" fetchpriority="high" decoding="async">
-      </div>
-      <nav class="research-banner-actions" aria-label="Explore my research">
-        <a class="banner-research" href="#research-title"><span>Research <span aria-hidden="true">→</span></span></a>
-        <a class="banner-publications" href="{{ '/publications/' | relative_url }}"><span>Publications <span aria-hidden="true">→</span></span></a>
-      </nav>
-    </div>
-    <p class="research-banner-caption">Conceptual research landscape <span aria-hidden="true">·</span> <a href="{{ '/assets/images/research-landscape-banner.png' | relative_url }}">View full artwork <span aria-hidden="true">↗</span></a></p>
+      <p class="page-subtitle">Statistics · Stochastic processes · Quantitative biology</p>
   </header>
-  <p class="page-subtitle home-affiliation">Qian Lab · Center for Interdisciplinary Studies<br>School of Science, <a href="https://www.westlake.edu.cn/">Westlake University</a></p>
   <div class="about-intro">
     <figure class="profile-photo">
       <img src="{{ '/assets/images/elvis-avatar.png' | relative_url }}" alt="Illustrated avatar selected by Elvis Han Cui" width="1158" height="1250" decoding="async">
@@ -29,9 +14,8 @@ layout: default
     <div class="about-body">{{ content }}</div>
   </div>
   <section class="research-overview" aria-labelledby="research-title">
-    <div class="section-heading"><div><p class="section-kicker">ONE TRAJECTORY, THREE THREADS</p><h2 id="research-title" tabindex="-1">What I Study</h2></div><a href="{{ '/publications/' | relative_url }}">Research &amp; publications <span aria-hidden="true">→</span></a></div>
-    <p class="research-overview-intro">I study how statistical inference and stochastic models can help us understand living systems — and how better experiments can make that understanding possible.</p>
-    {% include research-themes.html %}
+    <div class="section-heading"><h2 id="research-title" tabindex="-1">Research</h2></div>
+    {% include research-themes.html compact=true %}
   </section>
   <section class="selected-publications" aria-labelledby="selected-title">
     <div class="section-heading"><h2 id="selected-title">Selected Publications</h2><a href="{{ '/publications/' | relative_url }}">View all publications <span aria-hidden="true">→</span></a></div>
@@ -67,7 +51,6 @@ layout: default
       <div class="wechat-copy">
         <p class="wechat-label">WECHAT <span aria-hidden="true">/</span> <span lang="zh-CN">公众号</span></p>
         <h2 id="wechat-title" lang="zh-CN">{{ site.author.wechat_public_account | escape }}</h2>
-        <p class="wechat-deck">Statistics, models, and another way of seeing the world.</p>
       </div>
     </div>
     <div class="wechat-instructions">
@@ -79,9 +62,16 @@ layout: default
       <p class="wechat-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </div>
   </section>
-  <section class="business-card" aria-labelledby="business-card-title">
+  <details class="personal-artwork">
+    <summary>Research illustration</summary>
+    <figure class="research-illustration">
+      <img src="{{ '/assets/images/research-landscape-banner.png' | relative_url }}" alt="Conceptual research landscape connecting molecular observations, photon-counting traces, cells, organisms and populations." width="2073" height="758" loading="lazy" decoding="async">
+      <figcaption><a href="{{ '/assets/images/research-landscape-banner.png' | relative_url }}">View full artwork ↗</a> · <a href="#research-title">Research</a> · <a href="{{ '/publications/' | relative_url }}">Publications</a></figcaption>
+    </figure>
+  </details>
+  <details class="business-card personal-artwork">
+    <summary>Personal card</summary>
     <div class="business-card-heading">
-      <h2 id="business-card-title">Beyond the Bio</h2>
       <a href="{{ '/assets/images/elvis-business-card.png' | relative_url }}" download="Elvis-Han-Cui-Business-Card.png">Download my card <span aria-hidden="true">↓</span></a>
     </div>
     <figure>
@@ -90,7 +80,7 @@ layout: default
       </a>
       <figcaption>One trajectory, many scales — from molecules to society.</figcaption>
     </figure>
-  </section>
+  </details>
   <nav class="profile-links" aria-label="Profiles and contact">
     <a href="{{ site.author.googlescholar }}">Google Scholar</a>
     <a href="https://github.com/{{ site.author.github }}">GitHub</a>

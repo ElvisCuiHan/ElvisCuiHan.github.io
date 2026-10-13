@@ -11,7 +11,7 @@ redirect_from:
 ---
 
 <p class="section-kicker">ELVIS HAN CUI</p>
-<p class="cv-intro">One trajectory, many scales.<br>Connecting statistics and the life sciences through rigorous inference.</p>
+<p class="cv-intro">Statistics, stochastic processes and quantitative biology.</p>
 
 <div class="cv-tools">
 <button type="button" class="print-cv" data-print-cv>Print / Save as PDF</button>
@@ -31,7 +31,7 @@ redirect_from:
 <div>
 <section id="appointment" class="cv-section">
 <h2>Current appointment</h2>
-<div class="career-entry"><span class="career-date">Current<br>Hangzhou, China</span><div><h3>Westlake University</h3><p class="role">Postdoctoral Researcher · Qian Lab</p><p>Center for Interdisciplinary Studies, School of Science. Working with Professor Hong Qian on statistical inference, stochastic dynamics and quantitative biology.</p><p>Developing reproducible workflows for parameter estimation, molecular diffusion and hidden-state dynamics using fluorescence correlation spectroscopy and photon-counting data.</p></div></div>
+<div class="career-entry"><span class="career-date">Current<br>Hangzhou, China</span><div><h3>Westlake Institute for Advanced Study</h3><p class="role">Postdoctoral Researcher · Qian Lab</p><p>Institute of Natural Sciences, Hangzhou, Zhejiang 310024, P. R. China. Working with Professor Hong Qian on statistical inference, stochastic dynamics and quantitative biology.</p><p>Developing methods for parameter estimation, molecular diffusion and hidden-state dynamics using fluorescence correlation spectroscopy and photon-counting data.</p></div></div>
 </section>
 
 <section id="education" class="cv-section">
@@ -69,4 +69,4 @@ redirect_from:
 </div>
 </div>
 
-<p class="quiet-note">Updated September 2026. Use “Print / Save as PDF” above for a current copy. Historical teaching appointments are listed in the <a href="{{ '/teaching/' | relative_url }}">teaching archive</a>.</p>
+<p class="quiet-note">Updated October 2026. Use “Print / Save as PDF” above for a current copy. Historical teaching appointments are listed in the <a href="{{ '/teaching/' | relative_url }}">teaching archive</a>.</p>

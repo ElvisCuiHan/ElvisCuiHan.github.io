@@ -8,7 +8,7 @@ require 'digest'
 require 'date'
 
 root = File.expand_path(ARGV.fetch(0, '_site'))
-routes = ['index.html', 'publications/index.html', 'cv/index.html',
+routes = ['index.html', 'privacy/index.html', 'publications/index.html', 'cv/index.html',
           'writing/index.html', 'mentors/index.html', 'friends/index.html', 'translations/index.html',
           'teaching/index.html', 'sitemap/index.html', '404.html',
           'translations/ai-drug-discovery/index.html',
@@ -74,20 +74,20 @@ errors << 'Rendered bibliography differs from the data' unless pubs.css('.paper-
   errors << "Wrong category count: #{section}" unless pubs.css("##{section} .paper-list > li").size == expected
 end
 errors << 'Old student identity on homepage' if homepage.text.include?('PhD Student')
-banner = homepage.at_css('header.research-banner[aria-labelledby="banner-title"]')
-banner_image = banner&.at_css('.research-banner-art img')
+banner = homepage.at_css('details.personal-artwork')
+banner_image = banner&.at_css('.research-illustration img')
 banner_path = '/assets/images/research-landscape-banner.png'
-errors << 'Homepage must use the author-approved research banner' unless banner_image && banner_image['src'] == banner_path && banner_image['width'] == '2073' && banner_image['height'] == '758' && banner_image['fetchpriority'] == 'high'
+errors << 'Homepage must preserve the author-approved research banner without dominating the introduction' unless banner_image && banner_image['src'] == banner_path && banner_image['width'] == '2073' && banner_image['height'] == '758' && banner_image['loading'] == 'lazy' && !banner.key?('open')
 if File.file?(File.join(root, banner_path.delete_prefix('/')))
   errors << 'Research banner must remain identical to the supplied artwork' unless Digest::SHA256.file(File.join(root, banner_path.delete_prefix('/'))).hexdigest == '8105babf4a135374abf613e28367c8f111c3adf469448e954d65c414ef987a43'
 end
-errors << 'Banner needs HTML identity text, independent of its image' unless banner&.at_css('h1#banner-title')&.text == 'Elvis Han Cui' && banner.at_css('.banner-subtitle')&.text == 'Statistics for Dynamic Living Systems'
-errors << 'Painted banner buttons need two native navigation links' unless banner&.css('.research-banner-actions a')&.map { |a| a['href'] } == ['#research-title', '/publications/'] && banner.at_css('nav[aria-label="Explore my research"]')
+errors << 'Homepage needs readable HTML identity text before the research content' unless homepage.at_css('.personal-heading h1')&.text == 'Elvis Han Cui'
+errors << 'Research artwork must offer real navigation links' unless banner&.at_css('a[href="#research-title"]') && banner.at_css('a[href="/publications/"]')
 errors << 'Research destination must accept native keyboard focus' unless homepage.at_css('#research-title[tabindex="-1"]')
-errors << 'Full banner artwork should remain accessible on small screens' unless banner&.at_css(".research-banner-caption a[href='#{banner_path}']") && banner_image['alt'].start_with?('Conceptual research landscape')
-errors << 'Banner must replace, not duplicate, the oversized research statement' unless homepage.css('.research-question').empty? && homepage.at_css('.research-overview-intro')&.text.include?('statistical inference and stochastic models')
-errors << 'Homepage-specific banner stylesheet missing' unless homepage.at_css('link[href^="/assets/css/research-banner.css"]')
-errors << 'Missing research affiliation' unless ['Center for Interdisciplinary Studies', 'School of Science', 'Qian Lab', 'Postdoctoral'].all? { |text| homepage.text.downcase.include?(text.downcase) }
+errors << 'Full banner artwork should remain accessible on small screens' unless banner&.at_css("figcaption a[href='#{banner_path}']") && banner_image['alt'].start_with?('Conceptual research landscape')
+errors << 'Homepage must avoid oversized statements and repeated theme copy' unless homepage.css('.research-question,.theme-number,.theme-question,.theme-description,.banner-motto').empty?
+errors << 'Editorial stylesheet missing' unless homepage.at_css('link[href^="/assets/css/editorial.css"]')
+errors << 'Missing current research affiliation' unless ['Institute of Natural Sciences', 'Westlake Institute for Advanced Study', 'Qian Lab', 'Postdoctoral'].all? { |text| homepage.text.downcase.include?(text.downcase) }
 card = homepage.at_css('.business-card img')
 errors << 'Missing business card' unless card && card['src'] == '/assets/images/elvis-business-card.png'
 errors << 'Missing downloadable business card' unless homepage.at_css('.business-card a[download]')
@@ -156,7 +156,17 @@ errors << 'External Links must stay uncluttered' unless friends_page.at_css('.ex
 routes.each do |route|
   page = Nokogiri::HTML(File.read(File.join(root, route)))
   errors << "Missing footer External Links label: #{route}" unless page.at_css('.archive-links a[href="/friends/"]')&.text == 'External Links'
+  errors << "Missing privacy link: #{route}" unless page.at_css('.archive-links a[href="/privacy/"]')&.text == 'Privacy'
   errors << "Header display name should be English only: #{route}" unless page.at_css('.brand-wordmark')&.text == 'Elvis Han Cui' && page.css('.brand-chinese').empty?
+end
+analytics_config = YAML.safe_load(File.read(File.expand_path('../_config.yml', __dir__)), aliases: true)['analytics']
+unless analytics_config['enabled']
+  routes.each do |route|
+    page = Nokogiri::HTML(File.read(File.join(root, route)))
+    errors << "Disabled analytics loaded on #{route}" if page.at_css('script[src*="visitor-analytics"],script[src*="gc.zgo.at"]')
+  end
+  privacy = Nokogiri::HTML(File.read(File.join(root, 'privacy/index.html')))
+  errors << 'Disabled analytics must be described accurately' unless privacy.text.include?('Visitor analytics are not currently enabled')
 end
 translations = JSON.parse(File.read(File.expand_path('../_data/translations.json', __dir__)))['entries']
 translation_page = Nokogiri::HTML(File.read(File.join(root, 'translations/index.html')))
@@ -236,7 +246,7 @@ homepage.css('.selected-bibliography>li').each do |entry|
 end
 errors << 'Compass must retain its working-manuscript status' unless homepage.at_css('[data-paper-id="statistical-compass"] .publication-status')&.text == 'Working manuscript, not a publisher-issued book.'
 errors << 'Source PDFs must remain outside the generated site' if File.exist?(File.join(root, 'tmp/pdfs/selected-publications')) || Dir.glob(File.join(root, 'assets/images/publications/*.pdf')).any?
-errors << 'Missing research question' unless homepage.at_css('#question-title')
+errors << 'Homepage must describe actual current work' unless homepage.at_css('.about-body')&.text.include?('fluorescence correlation spectroscopy and photon-counting data')
 errors << 'Writing entry missing' unless homepage.at_css('.research-notes a[href="/writing/"]')
 notes = homepage.at_css('.research-notes')
 errors << 'Homepage Writing entry must remain a compact heading and single essay link' unless notes && notes.at_css('h2#notes-title')&.text == 'Writing' && notes.css('a').size == 1 && notes.at_css('.note-title[lang="zh-CN"]')&.text == '鞅的辉煌与苦难' && notes.css('p,.section-kicker,.note-language,.note-cta').empty? && notes.element_children.size == 2
