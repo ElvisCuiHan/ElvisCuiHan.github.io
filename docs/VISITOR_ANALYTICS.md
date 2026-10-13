@@ -1,13 +1,13 @@
 # Visitor analytics
 
-GoatCounter integration is installed but **disabled** until the owner supplies a verified dashboard address. No visitor statistics are available yet.
+GoatCounter is enabled for **eliuvish**, the site code confirmed by the owner on October 13, 2026. Dashboard: https://eliuvish.goatcounter.com/. An unauthenticated request redirects to login; the dashboard is not public. Statistics begin after the enabled configuration is deployed; earlier visits cannot be recovered.
 
-## Activate
+## Configuration and verification
 
-1. The owner creates and verifies a GoatCounter account for `https://elviscuihan.github.io/`.
-2. Keep the statistics dashboard private. Do not enable individual pageview storage.
-3. Confirm the dashboard's public site code (the subdomain before `.goatcounter.com`). No API token, password, or email verification code belongs in this repository.
-4. Set `analytics.goatcounter_code` to that code and `analytics.enabled` to `true` in `_config.yml`.
+1. The owner supplied `https://eliuvish.goatcounter.com/` after completing registration.
+2. Keep the statistics dashboard private. Individual pageview storage is not required.
+3. No API token, password, or email verification code belongs in this repository.
+4. `_config.yml` uses `analytics.goatcounter_code: "eliuvish"` and `analytics.enabled: true`. Set `enabled: false` to disable it without removing the integration.
 5. Build, run the checks below, and publish to the existing GitHub Pages branch.
 6. Visit one production page, then verify the count in the authenticated dashboard. Visits from a browser with Do Not Track / Global Privacy Control are intentionally excluded.
 

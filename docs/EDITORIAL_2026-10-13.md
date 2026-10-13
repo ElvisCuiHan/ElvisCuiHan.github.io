@@ -20,3 +20,25 @@
 - Open/close disclosures, keyboard Enter, image loading and the privacy page verified in the browser. Temporary viewport overrides reset.
 
 No GoatCounter account was created or claimed, and no real telemetry request was sent during testing. Activation and the authenticated dashboard count check still require the owner's verified site address.
+
+## Second pass — newspaper / magazine direction
+
+The owner subsequently supplied `https://eliuvish.goatcounter.com/` and requested
+a more distinctive journalism-inspired design. The integration is now enabled
+for `eliuvish`; an unauthenticated dashboard request was verified to redirect
+to login. The private dashboard's live counts still require owner login to view.
+
+Design changes: locally hosted Libre Caslon Display (SIL OFL bundled), a large
+name masthead, typographic rules, a monochrome presentation of the existing
+illustrated portrait, a lead scGTM article and two secondary publication columns.
+No new biographical claims or images were generated. Original image files,
+publication metadata and the three appearance modes are unchanged.
+
+QA: 14 routes / 448 local links and assets; enabled analytics destination checked
+on every primary route. Browser review at 320px, 390px, 768px and desktop width;
+no horizontal overflow or publication-column overlap. The local page contains
+the configured loader but never loads the remote counter, as intended.
+
+Typography source: [Google Fonts Libre Caslon Display](https://github.com/google/fonts/tree/main/ofl/librecaslondisplay).
+Editorial reference: [The New Yorker magazine index](https://www.newyorker.com/magazine),
+for hierarchy and article pacing only; no articles, images or brand assets copied.

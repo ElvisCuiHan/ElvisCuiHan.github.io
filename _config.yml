@@ -74,8 +74,8 @@ social:
 # Analytics
 analytics:
   provider               : "goatcounter"
-  enabled                : false # Enable only after confirming ownership of the dashboard.
-  goatcounter_code       : "" # Public site code, never an API key or password.
+  enabled                : true
+  goatcounter_code       : "eliuvish" # Owner-confirmed public site code; not a secret.
   google:
     tracking_id          :
 

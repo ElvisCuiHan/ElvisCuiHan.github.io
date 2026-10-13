@@ -137,8 +137,12 @@ disclosures. Ink & Paper, Day and Night still use the same appearance button.
 Current affiliation follows the author's September 22, 2026 record; historical
 appointments remain unchanged.
 
-Visitor analytics are prepared but disabled pending the owner's verified
-GoatCounter site code. See [activation and privacy notes](docs/VISITOR_ANALYTICS.md).
+Visitor analytics use the owner-confirmed private GoatCounter dashboard,
+`eliuvish.goatcounter.com`. See [configuration and privacy notes](docs/VISITOR_ANALYTICS.md).
+
+The newspaper-style revision uses a locally served Libre Caslon Display font,
+a masthead, a captioned portrait and a lead publication followed by two shorter
+columns. The font's SIL Open Font License is bundled in `assets/fonts/`.
 
 Use a current Ruby (3.2+) and Bundler:
 

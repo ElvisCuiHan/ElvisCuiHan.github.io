@@ -4,12 +4,14 @@ layout: default
 <article class="about-page">
   <p class="home-styling-credit">With thanks to <a href="https://yatingz205.github.io/">Yating Zou</a> for the styling.</p>
   <header class="personal-heading">
+      <div class="masthead-line"><span>Research &amp; Writing</span><span>Hangzhou, China</span></div>
       <h1 id="banner-title"><strong>Elvis Han</strong> Cui</h1>
       <p class="page-subtitle">Statistics · Stochastic processes · Quantitative biology</p>
   </header>
   <div class="about-intro">
     <figure class="profile-photo">
       <img src="{{ '/assets/images/elvis-avatar.png' | relative_url }}" alt="Illustrated avatar selected by Elvis Han Cui" width="1158" height="1250" decoding="async">
+      <figcaption>Elvis Han Cui <span>Illustrated portrait</span></figcaption>
     </figure>
     <div class="about-body">{{ content }}</div>
   </div>
@@ -41,6 +43,7 @@ layout: default
       {% endfor %}
     </ol>
   </section>
+  <div class="home-notebook">
   <section class="research-notes" aria-labelledby="notes-title">
     <h2 id="notes-title">Writing</h2>
     <a class="note-link" href="{{ '/writing/' | relative_url }}"><span class="note-title" lang="zh-CN">鞅的辉煌与苦难</span><span class="note-arrow" aria-hidden="true">→</span></a>
@@ -62,6 +65,7 @@ layout: default
       <p class="wechat-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </div>
   </section>
+  </div>
   <details class="personal-artwork">
     <summary>Research illustration</summary>
     <figure class="research-illustration">

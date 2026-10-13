@@ -167,7 +167,17 @@ unless analytics_config['enabled']
   end
   privacy = Nokogiri::HTML(File.read(File.join(root, 'privacy/index.html')))
   errors << 'Disabled analytics must be described accurately' unless privacy.text.include?('Visitor analytics are not currently enabled')
+else
+  routes.each do |route|
+    page = Nokogiri::HTML(File.read(File.join(root, route)))
+    counter = page.at_css('script[src="/assets/js/visitor-analytics.js"]')
+    errors << "Wrong GoatCounter destination on #{route}" unless counter && counter['data-site-code'] == analytics_config['goatcounter_code'] && counter.key?('defer')
+    errors << "Do not bypass the privacy guard on #{route}" if page.at_css('script[src*="gc.zgo.at"]')
+  end
+  privacy = Nokogiri::HTML(File.read(File.join(root, 'privacy/index.html')))
+  errors << 'Enabled analytics must be described accurately' unless privacy.text.include?('This site uses GoatCounter') && !privacy.text.include?('Visitor analytics are not currently enabled')
 end
+errors << 'Newspaper typography must be served locally with its license' unless homepage.at_css('link[rel="preload"][href="/assets/fonts/LibreCaslonDisplay-Regular.ttf"]') && File.file?(File.join(root, 'assets/fonts/LibreCaslonDisplay-OFL.txt'))
 translations = JSON.parse(File.read(File.expand_path('../_data/translations.json', __dir__)))['entries']
 translation_page = Nokogiri::HTML(File.read(File.join(root, 'translations/index.html')))
 translation_ids = translations.map { |book| book['id'] }

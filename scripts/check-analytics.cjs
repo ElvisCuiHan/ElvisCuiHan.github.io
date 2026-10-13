@@ -49,6 +49,10 @@ if (fs.existsSync(built)) {
   if (/enabled\s*:\s*false/.test(config)) {
     assert.ok(!html.includes('src="/assets/js/visitor-analytics.js"'));
     assert.ok(!html.includes('gc.zgo.at/count.js'));
+  } else {
+    assert.ok(html.includes('src="/assets/js/visitor-analytics.js"'));
+    assert.ok(html.includes('data-site-code="eliuvish"'));
+    assert.ok(!html.includes('src="https://gc.zgo.at/count.js"'));
   }
 }
-console.log('Analytics checks passed: production guard, disabled state, privacy signals, URL minimization, storage fallback.');
+console.log('Analytics checks passed: production guard, configured loader, privacy signals, URL minimization, storage fallback.');
