@@ -29,10 +29,14 @@ for `eliuvish`; an unauthenticated dashboard request was verified to redirect
 to login. The private dashboard's live counts still require owner login to view.
 
 Design changes: locally hosted Libre Caslon Display (SIL OFL bundled), a large
-name masthead, typographic rules, a monochrome presentation of the existing
-illustrated portrait, a lead scGTM article and two secondary publication columns.
+name masthead, typographic rules, the existing full-color illustrated portrait,
+a lead scGTM article and two secondary publication columns.
 No new biographical claims or images were generated. Original image files,
 publication metadata and the three appearance modes are unchanged.
+
+The owner requested color rather than monochrome; the portrait retains its
+original colors without a grayscale filter. Editorial hierarchy is typographic,
+not dependent on black-and-white imagery.
 
 QA: 14 routes / 448 local links and assets; enabled analytics destination checked
 on every primary route. Browser review at 320px, 390px, 768px and desktop width;

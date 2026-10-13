@@ -43,7 +43,7 @@
 .about-page .about-intro { display:grid; grid-template-columns:minmax(0,1fr) 228px; align-items:start; gap:70px; margin:0 0 35px; }
 .about-intro .profile-photo { float:none; position:static; width:100%; margin:0; grid-column:2; grid-row:1; }
 .profile-photo::after { display:none; }
-.profile-photo img { width:100%; height:auto; padding:0; border:0; border-radius:50%; filter:grayscale(1); }
+.profile-photo img { width:100%; height:auto; padding:0; border:0; border-radius:50%; filter:none; }
 .profile-photo figcaption { display:flex; justify-content:space-between; gap:10px; margin-top:9px; font-size:9px; color:var(--muted); }
 .profile-photo figcaption span { font-style:italic; }
 .about-body { grid-column:1; grid-row:1; }
